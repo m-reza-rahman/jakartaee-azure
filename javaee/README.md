@@ -7,6 +7,7 @@ We use Eclipse but you can use any Maven capable IDE such as NetBeans. We use Wi
 
 - Install JDK 8+.
 - Install the Eclipse IDE for Java EE Developers from [here](https://www.eclipse.org/downloads/packages/).
+- Download the latest stable version of WildFly from [here](https://wildfly.org/downloads). Make sure to download the WildFly version with full Java EE 8 support. Unzip the download somewhere in your file system. 
 - Install WebSphere Liberty in Eclipse by following the instructions [here](https://developer.ibm.com/wasdev/downloads/liberty-profile-using-eclipse/). Make sure to install WebSphere Liberty with full Java EE 8 (you can automatically download right from the IDE).
 - Install Docker for your OS.
 - Download this repository somewhere in your file system (easiest way might be to download as a zip and extract).
