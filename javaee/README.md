@@ -1,7 +1,7 @@
 # Basic Java EE CRUD Application
-This is the basic Java EE 8 application used throughout the Docker and Kubertenes demos. It is a simple CRUD application. It uses Maven and Java EE 8 (JAX-RS, EJB, CDI, JPA, JSF, Bean Validation).
+This is the basic Java EE 8 application used throughout the Azure demos. It is a simple CRUD application. It uses Maven and Java EE 8 (JAX-RS, EJB, CDI, JPA, JSF, Bean Validation).
 
-We use Eclipse but you can use any Maven capable IDE such as NetBeans. We use WebSphere Liberty but you should be able to use any Java EE 8 compatiple application server such as WildFly or Payara. We use Postgres but you can use any relational database such as MySQL.
+We use Eclipse but you can use any Maven capable IDE such as NetBeans. We use WildFly but you should be able to use any Java EE 8 compatiple application server such as WebSphere Liberty or Payara. We use Postgres but you can use any relational database such as MySQL or SQL Server.
 
 ## Setup
 
@@ -12,7 +12,7 @@ We use Eclipse but you can use any Maven capable IDE such as NetBeans. We use We
 - Download this repository somewhere in your file system (easiest way might be to download as a zip and extract).
 
 ## Database Creation
-The first step to getting the application running is getting the database up. The simplest way to actually do this is through Docker. Please follow the instructions below to get the database running.
+The first step to getting the application running is getting the database up. The simplest way to actually do this is through Docker (we will be using Docker more extensively during our Kubernetes demo). Please follow the instructions below to get the database running.
 * Make sure Docker is running. Open a console.
 * Enter the following command and wait for the database to come up fully.
 ```
