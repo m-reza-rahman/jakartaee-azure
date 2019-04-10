@@ -5,7 +5,7 @@ This demo shows how you can deploy a Java EE application to Azure using Linux vi
 * You will need an Azure subscription. If you don't have one, you can get one for free for one year [here](https://azure.microsoft.com/en-us/free).
 
 ## Start Managed PostgreSQL on Azure
-We will be using the fully managed PostgreSQL offering in Azure for this demo. If you have not set it up yet, please do so now.
+We will be using the fully managed PostgreSQL offering in Azure for this demo. If you have not set it up yet, please do so now. https://docs.microsoft.com/en-us/azure/postgresql/quickstart-create-server-database-portal
 
 ## Start the Application with Docker
 The next step is to get the application up and running. Follow the steps below to do so.
