@@ -1,49 +1,42 @@
-# Basic Java EE CRUD Application
-This is the basic Java EE 8 application used throughout the Azure demos. It is a simple CRUD application. It uses Maven and Java EE 8 (JAX-RS, EJB, CDI, JPA, JSF, Bean Validation).
+# Java EE Thin Wars with Docker and WebSphere Liberty
+This demo shows using Java EE thin wars with Docker repositories, layering, and caching. It uses Liberty server under Docker using the `websphere-liberty` image that is available from the online Docker Hub repository. The following is how you run the demo.
 
-We use Eclipse but you can use any Maven capable IDE such as NetBeans. We use WildFly but you should be able to use any Java EE 8 compatiple application server such as WebSphere Liberty or Payara. We use Postgres but you can use any relational database such as MySQL or SQL Server.
+## Start the Database with Docker
+The first step to getting the application running is getting the database up. Please follow the instructions below to get the database running.
 
-## Setup
-
-- Install JDK 8+.
-- Install the Eclipse IDE for Java EE Developers from [here](https://www.eclipse.org/downloads/packages/). 
-- Install Docker for your OS.
-- Download this repository somewhere in your file system (easiest way might be to download as a zip and extract).
-
-## Database Creation
-The first step to getting the application running is getting the database up. The simplest way to actually do this is through Docker (we will be using Docker more extensively during our Kubernetes demo). Please follow the instructions below to get the database running.
+* Ensure that all running Docker containers are shut down. You may want to do this by restarting Docker. The demo depends on containers started in the exact order as below (this will be less of a problem when we start using Kubernetes).
 * Make sure Docker is running. Open a console.
 * Enter the following command and wait for the database to come up fully.
 ```
 docker run -it --rm --name javaee-cafe-db -v pgdata:/var/lib/postgresql/data -p 5432:5432 postgres
 ```
-* The database is now ready. To stop it, simply press Control-C.
+* The database is now ready (to stop it, simply press Control-C after the Java EE application is shutdown).
 
-## Running the Application
+## Start the Application with Docker
 The next step is to get the application up and running. Follow the steps below to do so.
-* Start Eclipse.
-* Go to the 'Servers' panel, right click. Select New -> Server -> Red Hat JBoss Middleware -> JBoss AS, WildFly and EAP Server Tools. Click next. Accept the license agreement, click 'Finish'.
-* After the Eclipse WildFly adapters are done installing, go to the 'Servers' panel again, right click. Select New -> Server -> JBoss Community and select the latest WildFly version. Choose the defaults on the next screen and hit 'Next'. Select 'Download and install runtime..." and select the latest stable version of WildFly. Hit next, accept the license agreement. Hit next again. Select where you want WildFly downloaded and installed. Click 'Finish'. Keep the defaults and hit 'Finish'. WildFly is now setup in Eclipse.
-* Go to the directory where you have WildFly installed.
-* Create a new directory org/postgresql/main within /modules.
-* Copy the Postgres driver and the corresponding module.xml to the newly created directory. These files are located in the javaee/server directory where you downloaded the application code.
-* From the same javaee/server directory, copy the standalone.xml file to the /standalone/configuration directory of the WildFly installation.
-* Get the javaee-cafe application into the IDE. In order to do that, go to File -> Import -> Maven -> Existing Maven Projects. Then browse to where you have this repository code in your file system and select javaee/javaee-cafe. Accept the rest of the defaults and finish.
-* Once the application loads, you should do a full Maven build by going to Right click the application -> Run As -> Maven install.
-* It is now time to run the application. Go to Right click the application -> Run As -> Run on Server. Make sure to choose WildFly as the server going forward. Just accept the defaults and wait for the application to finish running.
-* Once the application runs, Eclise will open it up in a browser. The application is available at [http://localhost:8080/javaee-cafe](http://localhost:8080/javaee-cafe).
 
-## Content
+* Open Eclipse.
+* Do a full build of the javaee-cafe application via Maven by going to Right click the application -> Run As -> Maven install.
+* Browse to where you have this repository code in your file system. You will now need to copy the war file to where we will build the Docker image. You will find the war file under javaee/javaee-cafe/target. Copy the war file to thin-war/.
+* You should explore the Dockerfile in this directory used to build the Docker image. It simply starts from the `websphere-liberty` image, adds the `javaee-cafe.war` from the current directory in to the `dropins` directory, copies the PostgreSqQL driver `postgresql-42.2.4.jar` into the `shared/resources` directory and replaces the defaultServer configuration file `server.xml`.
+* Notice how the data source properties in the `server.xml` file looks like:
 
-The application is composed of:
+<pre>serverName="172.17.0.2"
+portNumber="5432"
+databaseName="postgres"
+user="postgres"
+password=""</pre>
 
-- **A RESTFul service*:** protocol://hostname:port/javaee-cafe/rest/coffees
+* Note, we are depending on the fact that the database is the first container to start and has the IP 172.17.0.2. For Mac and Windows users the serverName could be changed to `host.docker.internal`. That will make the container start order less significant.
+* Open a console. Build a Docker image tagged `javaee-cafe` navigating to the thin-war/ directory as context and issuing the command:
 
-	- **_GET by Id_**: protocol://hostname:port/javaee-cafe/rest/coffees/{id} 
-	- **_GET all_**: protocol://hostname:port/javaee-cafe/rest/coffees
-	- **_POST_** to add a new element at: protocol://hostname:port/javaee-cafe/rest/coffees
-	- **_DELETE_** to delete an element at: protocol://hostname:port/javaee-cafe/rest/coffees/{id}
+	```
+	docker build -t javaee-cafe .
+	```
+* To run the newly built image, use the command:
 
-- **A JSF Client:** protocol://hostname:port/javaee-cafe/index.xhtml
-
-Feel free to take a minute to explore the application.
+	```
+	docker run -it --rm -p 9080:9080 javaee-cafe
+	```
+* Wait for WebSphere Liberty to start and the application to deploy sucessfully (to stop the application and Liberty, simply press Control-C).
+* Once the application starts, you can test the REST service at the URL: [http://localhost:9080/javaee-cafe/rest/coffees](http://localhost:9080/javaee-cafe/rest/coffees) or via the JSF client at [http://localhost:9080/javaee-cafe/index.xhtml](http://localhost:9080/javaee-cafe/index.xhtml).
