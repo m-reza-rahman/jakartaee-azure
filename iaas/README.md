@@ -11,8 +11,8 @@ We will be using the fully managed PostgreSQL offering in Azure for this demo. I
 * Select Create a resource -> Databases -> Azure Database for PostgreSQL.
 * Specify the Server name to be javaee-cafe-db. Create a new resource group named javaee-cafe-group. Specify the login name to be postgres. Specify the password to be Secret123!. Hit 'Create'. It will take a moment for the database to deploy and be ready for use. 
 
-## Start the Application with Docker
-The next step is to get the application up and running. Follow the steps below to do so.
+## Start the Application on a Virtual Machine
+The next step is to get the application up and running on a virtual machine. Follow the steps below to do so.
 
 * Open Eclipse.
 * Do a full build of the javaee-cafe application via Maven by going to Right click the application -> Run As -> Maven install.
