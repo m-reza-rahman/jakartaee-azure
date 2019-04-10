@@ -27,12 +27,11 @@ The next step is to get the application up and running. Follow the steps below t
 * Go to the directory where you have WildFly installed.
 * Create a new directory org/postgresql/main within /modules.
 * Copy the Postgres driver and the corresponding module.xml to the newly created directory. These files are located in the javaee/server directory where you downloaded the application code.
-
-* Browse to where you have this repository code in your file system. You will need to copy the server.xml Both of these files are located under javaee/server. Copy the Postgres driver into the WebSphere Liberty installation location under usr/shared/resources. Now copy the server.xml into usr/servers/[your-server-name]/. The server name is probably defaultServer or newServer.
+* From the same javaee/server directory, copy the standalone.xml file to the /standalone/configuration directory of the WildFly installation.
 * Get the javaee-cafe application into the IDE. In order to do that, go to File -> Import -> Maven -> Existing Maven Projects. Then browse to where you have this repository code in your file system and select javaee/javaee-cafe. Accept the rest of the defaults and finish.
 * Once the application loads, you should do a full Maven build by going to Right click the application -> Run As -> Maven install.
 * It is now time to run the application. Go to Right click the application -> Run As -> Run on Server. Make sure to choose WildFly as the server going forward. Just accept the defaults and wait for the application to finish running.
-* Once the application runs, Eclise will open it up in a browser. The application is available at [http://localhost:9080/javaee-cafe](http://localhost:9080/javaee-cafe).
+* Once the application runs, Eclise will open it up in a browser. The application is available at [http://localhost:8080/javaee-cafe](http://localhost:8080/javaee-cafe).
 
 ## Content
 
