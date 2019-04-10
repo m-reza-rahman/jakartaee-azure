@@ -4,19 +4,7 @@ This demo shows using Java EE thin wars with Docker repositories, layering, and 
 ## Start the Database with Docker
 The first step to getting the application running is getting the database up. Please follow the instructions below to get the database running.
 
-<<<<<<< HEAD
 * Ensure that all running Docker containers are shut down. You may want to do this by restarting Docker. The demo depends on containers started in the exact order as below (this will be less of a problem when we start using Kubernetes).
-=======
-## Setup
-- https://azure.microsoft.com/en-us/free/
-- Install JDK 8+.
-- Install the Eclipse IDE for Java EE Developers from [here](https://www.eclipse.org/downloads/packages/). 
-- Install Docker for your OS.
-- Download this repository somewhere in your file system (easiest way might be to download as a zip and extract).
-
-## Database Creation
-The first step to getting the application running is getting the database up. The simplest way to actually do this is through Docker (we will be using Docker more extensively during our Kubernetes demo). Please follow the instructions below to get the database running.
->>>>>>> 5798e8ea0e41152f851088c823ac314130249274
 * Make sure Docker is running. Open a console.
 * Enter the following command and wait for the database to come up fully.
 ```
