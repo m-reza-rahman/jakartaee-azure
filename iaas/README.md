@@ -14,6 +14,9 @@ We will be using the fully managed PostgreSQL offering in Azure for this demo. I
 ## Start the Application on a Virtual Machine
 The next step is to get the application up and running on a virtual machine. Follow the steps below to do so.
 
+* Go to the [Azure portal](http://portal.azure.com).
+* Select Create a resource -> Compute -> Ubuntu Server [the latest featured stable version in Azure].
+
 * Open Eclipse.
 * Do a full build of the javaee-cafe application via Maven by going to Right click the application -> Run As -> Maven install.
 * Browse to where you have this repository code in your file system. You will now need to copy the war file to where we will build the Docker image. You will find the war file under javaee/javaee-cafe/target. Copy the war file to thin-war/.
