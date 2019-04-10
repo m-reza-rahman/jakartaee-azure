@@ -16,6 +16,7 @@ The next step is to get the application up and running on a virtual machine. Fol
 
 * Go to the [Azure portal](http://portal.azure.com).
 * Select Create a resource -> Compute -> Ubuntu Server [the latest featured stable version in Azure].
+* Enter the resource group as javaee-cafe-group. Enter the virtual machine name as javaee-cafe-server. Choose password based authentication instead of SSH. Enetr
 
 * Open Eclipse.
 * Do a full build of the javaee-cafe application via Maven by going to Right click the application -> Run As -> Maven install.
