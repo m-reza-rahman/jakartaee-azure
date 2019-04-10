@@ -1,16 +1,8 @@
-# Java EE Thin Wars with Docker and WebSphere Liberty
-This demo shows using Java EE thin wars with Docker repositories, layering, and caching. It uses Liberty server under Docker using the `websphere-liberty` image that is available from the online Docker Hub repository. The following is how you run the demo.
+# Deploying a Java EE application on Azure using IaaS
+This demo shows how you can deploy a Java EE application to Azure using Linux virtual machines. The following is how you run the demo.
 
-## Start the Database with Docker
-The first step to getting the application running is getting the database up. Please follow the instructions below to get the database running.
-
-* Ensure that all running Docker containers are shut down. You may want to do this by restarting Docker. The demo depends on containers started in the exact order as below (this will be less of a problem when we start using Kubernetes).
-* Make sure Docker is running. Open a console.
-* Enter the following command and wait for the database to come up fully.
-```
-docker run -it --rm --name javaee-cafe-db -v pgdata:/var/lib/postgresql/data -p 5432:5432 postgres
-```
-* The database is now ready (to stop it, simply press Control-C after the Java EE application is shutdown).
+## Setup
+* You will need an Azure subscription. If you don't have one, you can get one for free for one year [here](https://azure.microsoft.com/en-us/free).
 
 ## Start the Application with Docker
 The next step is to get the application up and running. Follow the steps below to do so.
