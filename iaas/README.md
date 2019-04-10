@@ -4,7 +4,7 @@ This is the basic Java EE 8 application used throughout the Azure demos. It is a
 We use Eclipse but you can use any Maven capable IDE such as NetBeans. We use WildFly but you should be able to use any Java EE 8 compatiple application server such as WebSphere Liberty or Payara. We use Postgres but you can use any relational database such as MySQL or SQL Server.
 
 ## Setup
-
+- https://azure.microsoft.com/en-us/free/
 - Install JDK 8+.
 - Install the Eclipse IDE for Java EE Developers from [here](https://www.eclipse.org/downloads/packages/). 
 - Install Docker for your OS.
