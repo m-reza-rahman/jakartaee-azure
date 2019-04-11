@@ -78,4 +78,5 @@ The next step is to get the application up and running on a virtual machine. Fol
 	```
 	./standalone.sh
 	```
-* Once the application starts, you can test the REST service at the URL: [http://localhost:9080/javaee-cafe/rest/coffees](http://localhost:9080/javaee-cafe/rest/coffees) or via the JSF client at [http://localhost:9080/javaee-cafe/index.xhtml](http://localhost:9080/javaee-cafe/index.xhtml).
+* In the portal, go to 'All resources'. Find and click on javaee-cafe-server. In the overview panel, find and copy the public IP address.
+* Once the application starts, you can test the REST service at the URL: http://[your public IP]/javaee-cafe/rest/coffees or via the JSF client at http://[your public IP]/javaee-cafe/index.xhtml.
