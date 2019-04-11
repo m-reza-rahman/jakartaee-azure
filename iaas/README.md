@@ -24,6 +24,12 @@ The next step is to get the application up and running on a virtual machine. Fol
 ```
 ssh wildfly@[some public IP]
 ```
+* Install Maven by executing the following command. This will also install Java.
+
+```
+sudo apt install maven
+```
+
 
 * Connect to the virtual machine by execuing this command.
 
