@@ -18,7 +18,7 @@ The next step is to get the application up and running on a virtual machine. Fol
 * Select Create a resource -> Compute -> Ubuntu Server [the latest featured stable version in Azure].
 * Enter the resource group as javaee-cafe-group. Enter the virtual machine name as javaee-cafe-server. Choose password based authentication instead of SSH. Enter wildfly as the username. Specify the password to be Secret12345!. Select 'Allow selected ports'. Pick the HTTP (80), HTTPS (443) and SSH (22) ports to open. Click next. Accept the defaults for disks and click next. Accept the defaults for networking and click next. Accept the defaults for management and click next. Accept the defaults for advanced options and click next. Accept the defaults for tags and click next. Hit 'Create'
 * Once the virtual machine is created, you'll need to find out its assigned public IP address. In the portal, go to 'All resources'. Find and click on javaee-cafe-server. In the overview panel, find and copy the public IP address.
-* In the portal, go to 'All resources'. Find and click on javaee-cafe-db. Open the connection security panel. For rule name, specify allow-server-access. For the start and end IP, enter the public IP for javaee-cafe-server you copied earlier.
+* In the portal, go to 'All resources'. Find and click on javaee-cafe-db. Open the connection security panel. For rule name, specify allow-server-access. For the start and end IP, enter the public IP for javaee-cafe-server you copied earlier. Make sure the rule is saved.
 
 * Open Eclipse.
 * Do a full build of the javaee-cafe application via Maven by going to Right click the application -> Run As -> Maven install.
