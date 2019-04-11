@@ -55,6 +55,11 @@ The next step is to get the application up and running on a virtual machine. Fol
 	```
 	unzip master.zip
 	```
+*  Change directories to where the application was extracted. Move to the javaee/javaee-cafe directory. Build the application by executing:
+
+	```
+	mvn install
+	```
 
 * Open Eclipse.
 * Do a full build of the javaee-cafe application via Maven by going to Right click the application -> Run As -> Maven install.
