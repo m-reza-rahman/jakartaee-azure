@@ -50,6 +50,11 @@ The next step is to get the application up and running on a virtual machine. Fol
 	```
 	wget https://github.com/m-reza-rahman/javaee-azure/archive/master.zip
 	```
+* Unzip the application by executing the following command:
+
+	```
+	unzip master.zip
+	```
 
 * Open Eclipse.
 * Do a full build of the javaee-cafe application via Maven by going to Right click the application -> Run As -> Maven install.
