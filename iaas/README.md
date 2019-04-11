@@ -21,20 +21,20 @@ The next step is to get the application up and running on a virtual machine. Fol
 * In the portal, go to 'All resources'. Find and click on javaee-cafe-db. Open the connection security panel. For rule name, specify allow-server-access. For the start and end IP, enter the public IP for javaee-cafe-server you copied earlier. Make sure the rule is applied. Disable SSL connection enforcement and then hit Save.
 * In the portal, go to 'All resources'. Find and click on javaee-cafe-server. Click on 'Connect'. On the SSH tab, you should be able to find the command to connect to this virtual machine. It will look something like:
 
-```
-ssh wildfly@[some public IP]
-```
+	```
+	ssh wildfly@[some public IP]
+	```
 * Connect to the virtual machine by executing this command.
 * Install Maven by executing the following command. This will also install Java.
 
-```
-sudo apt install maven
-```
+	```
+	sudo apt install maven
+	```
 * Download WildFy by executing the following command:
 
-```
-wget https://download.jboss.org/wildfly/16.0.0.Final/wildfly-16.0.0.Final.zip
-```
+	```
+	wget https://download.jboss.org/wildfly/16.0.0.Final/wildfly-16.0.0.Final.zip
+	```
 
 
 
