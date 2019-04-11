@@ -38,7 +38,7 @@ The next step is to get the application up and running on a virtual machine. Fol
 * Install unzip by executing the following command:
 
 	```
-        sudo apt install unzip
+	sudo apt install unzip
 	```	
 * Unzip WildFy by executing the following command:
 
