@@ -48,7 +48,7 @@ The next step is to get the application up and running on a virtual machine. Fol
 * Download the application by executing the following command:
 
 	```
-        wget https://github.com/m-reza-rahman/javaee-azure/archive/master.zip
+	wget https://github.com/m-reza-rahman/javaee-azure/archive/master.zip
 	```
 
 * Open Eclipse.
