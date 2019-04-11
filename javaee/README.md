@@ -31,7 +31,7 @@ The next step is to get the application up and running. Follow the steps below t
 * Get the javaee-cafe application into the IDE. In order to do that, go to File -> Import -> Maven -> Existing Maven Projects. Then browse to where you have this repository code in your file system and select javaee/javaee-cafe. Accept the rest of the defaults and finish.
 * Once the application loads, you should do a full Maven build by going to Right click the application -> Run As -> Maven install.
 * It is now time to run the application. Go to Right click the application -> Run As -> Run on Server. Make sure to choose WildFly as the server going forward. Just accept the defaults and wait for the application to finish running.
-* Once the application runs, Eclise will open it up in a browser. The application is available at [http://localhost:8080/javaee-cafe](http://localhost:8080/javaee-cafe).
+* Once the application runs, Eclise will open it up in a browser. The application is available at [http://localhost/javaee-cafe](http://localhost/javaee-cafe).
 
 ## Content
 
