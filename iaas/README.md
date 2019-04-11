@@ -60,6 +60,14 @@ The next step is to get the application up and running on a virtual machine. Fol
 	```
 	mvn install
 	```
+* Change directories back to home.
+* Execute the following commands to install the JDBC driver and standalone configuration:
+	```
+	mkdir -p wildfly-16.0.0.Final/modules/org/postgresql/main
+	cp javaee-azure-master/javaee/server/postgresql-42.2.4.jar wildfly-16.0.0.Final/modules/org/postgresql/main/
+	cp javaee-azure-master/javaee/server/module.xml wildfly-16.0.0.Final/modules/org/postgresql/main/
+	cp javaee-azure-master/iaas/standalone.xml wildfly-16.0.0.Final/standalone/configuration/
+	```
 
 * Open Eclipse.
 * Do a full build of the javaee-cafe application via Maven by going to Right click the application -> Run As -> Maven install.
