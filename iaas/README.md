@@ -45,8 +45,11 @@ The next step is to get the application up and running on a virtual machine. Fol
 	```
 	unzip wildfly-16.0.0.Final.zip
 	```
+* Download the application by executing the following command:
 
-
+	```
+        wget https://github.com/m-reza-rahman/javaee-azure/archive/master.zip
+	```
 
 * Open Eclipse.
 * Do a full build of the javaee-cafe application via Maven by going to Right click the application -> Run As -> Maven install.
