@@ -24,14 +24,19 @@ The next step is to get the application up and running on a virtual machine. Fol
 ```
 ssh wildfly@[some public IP]
 ```
+* Connect to the virtual machine by executing this command.
 * Install Maven by executing the following command. This will also install Java.
 
 ```
 sudo apt install maven
 ```
+* Download WildFy by executing the following command:
+
+```
+wget https://download.jboss.org/wildfly/16.0.0.Final/wildfly-16.0.0.Final.zip
+```
 
 
-* Connect to the virtual machine by execuing this command.
 
 
 * Open Eclipse.
