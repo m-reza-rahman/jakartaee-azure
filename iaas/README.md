@@ -35,6 +35,11 @@ The next step is to get the application up and running on a virtual machine. Fol
 	```
 	wget https://download.jboss.org/wildfly/16.0.0.Final/wildfly-16.0.0.Final.zip
 	```
+* Install unzip by executing the following command:
+
+	```
+        sudo apt install unzip
+	```	
 * Unzip WildFy by executing the following command:
 
 	```
