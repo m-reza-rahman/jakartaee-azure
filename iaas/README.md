@@ -35,7 +35,11 @@ The next step is to get the application up and running on a virtual machine. Fol
 	```
 	wget https://download.jboss.org/wildfly/16.0.0.Final/wildfly-16.0.0.Final.zip
 	```
+* Unzip WildFy by executing the following command:
 
+	```
+	unzip wildfly-16.0.0.Final.zip
+	```
 
 
 
