@@ -1,4 +1,4 @@
-# Deploying a Java EE application on Azure using IaaS
+# Deploying a Java EE application on Azure using PaaS
 This demo shows how you can deploy a Java EE application to Azure using Linux virtual machines. The following is how you run the demo.
 
 ## Setup
