@@ -17,7 +17,7 @@ We will be using the fully managed PostgreSQL offering in Azure for this demo. I
 * Go to All resources. Find javaee-cafe-ip and click on it. On the Overview pane, copy down the IP address.
 * In the portal, go to 'All resources'. Find and click on javaee-cafe-db. Open the connection security panel. For rule name, specify allow-cluster-access. For the start and end IP, enter the public IP for javaee-cafe-ip you copied earlier. Make sure the rule is applied. Disable SSL connection enforcement and then hit Save.
 * You will now need to setup kubectl. [Here](https://kubernetes.io/docs/tasks/tools/install-kubectl/) are instructions on how to do that.
-
+* Next you will install the Azure CLI. [Here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) are instructions on how to do that.  
 
 
 - You need to have a Kubernetes cluster with kubectl installed and configured to use your cluster. We used the Google Cloud but you can use any Kubernetes capable platform such as IBM Cloud. You can even run Kubernetes locally.
