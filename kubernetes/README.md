@@ -16,12 +16,16 @@ We will be using the fully managed PostgreSQL offering in Azure for this demo. I
 * Next you will need to create a public static IP address. Go to the [Azure portal](http://portal.azure.com). Hit Create a resource. Search the marketplace for 'Public IP address'. Once you find it, hit 'Create'. Specify the name to be javaee-cafe-ip. Select the IP assignment type to be static. For the resoure group, *don't pick javaee-cafe-group*. Instead you will see something like MC_javaee-cafe-group_javaee-cafe-cluster_[some region]. Pick that and hit create.
 * Go to All resources. Find javaee-cafe-ip and click on it. On the Overview pane, copy down the IP address.
 * In the portal, go to 'All resources'. Find and click on javaee-cafe-db. Open the connection security panel. For rule name, specify allow-cluster-access. For the start and end IP, enter the public IP for javaee-cafe-ip you copied earlier. Make sure the rule is applied. Disable SSL connection enforcement and then hit Save.
+
+## Setup Kubernetes Tooling
 * You will now need to setup kubectl. [Here](https://kubernetes.io/docs/tasks/tools/install-kubectl/) are instructions on how to do that.
-* Next you will install the Azure CLI. [Here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) are instructions on how to do that.  
+* Next you will install the Azure CLI. [Here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) are instructions on how to do that.
+* You will then connect kubectl to the Kubernetes cluster you created. To do so, run the following command:
 
-
-- You need to have a Kubernetes cluster with kubectl installed and configured to use your cluster. We used the Google Cloud but you can use any Kubernetes capable platform such as IBM Cloud. You can even run Kubernetes locally.
-- You need to have docker cli installed and you must be signed into your Docker Hub account. To create a Docker Hub account go to [https://hub.docker.com](https://hub.docker.com).
+   ```
+   az aks get-credentials --resource-group javaee-cafe-group --name javaee-cafe-cluster
+   ```
+* You need to have docker cli installed and you must be signed into your Docker Hub account. To create a Docker Hub account go to [https://hub.docker.com](https://hub.docker.com).
 
 ## Deploy the Java EE Application on Kubernetes
 * Open Eclipse.
