@@ -54,7 +54,7 @@ We will be using the fully managed PostgreSQL offering in Azure for this demo. I
    ```
    kubectl get svc javaee-cafe --watch
    ```
-   > **Note:** It may take a few minutes for the load balancer to be created. When the external IP changes over from *pending* just hit CTRL-C.
+  It may take a few minutes for the load balancer to be created. When the external IP changes over from *pending* to a vald IP, just hit Control-C to exit.
 
 * Scale your application:
    ```
