@@ -1,5 +1,5 @@
-# Deploying a Java EE application on Azure using IaaS
-This demo shows how you can deploy a Java EE application to Azure using Linux virtual machines. The following is how you run the demo.
+# Deploying a Java EE Application on Azure using PaaS
+This demo shows how you can deploy a Java EE application to Azure using fully managed WildFly. The following is how you run the demo.
 
 ## Setup
 * You will need an Azure subscription. If you don't have one, you can get one for free for one year [here](https://azure.microsoft.com/en-us/free).
@@ -10,6 +10,10 @@ We will be using the fully managed PostgreSQL offering in Azure for this demo. I
 * Go to the [Azure portal](http://portal.azure.com).
 * Select Create a resource -> Databases -> Azure Database for PostgreSQL.
 * Specify the Server name to be javaee-cafe-db. Create a new resource group named javaee-cafe-group. Specify the login name to be postgres. Specify the password to be Secret123!. Hit 'Create'. It will take a moment for the database to deploy and be ready for use. 
+
+
+
+
 
 ## Start the Application on a Virtual Machine
 The next step is to get the application up and running on a virtual machine. Follow the steps below to do so.
