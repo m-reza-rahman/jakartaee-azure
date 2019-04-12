@@ -1,6 +1,17 @@
 # Deploying a Java EE application on Azure using Docker and Kubernetes
+This demo shows how you can deploy a Java EE application to Azure using Docker and Kubernetes. The following is how you run the demo.
 
-This demo will show how to make application server administration, clustering, autodiscovery and load-balancing work with Docker clusters, networking, and Kubernetes deployments.
+## Setup
+* You will need an Azure subscription. If you don't have one, you can get one for free for one year [here](https://azure.microsoft.com/en-us/free).
+
+## Start Managed PostgreSQL on Azure
+We will be using the fully managed PostgreSQL offering in Azure for this demo. If you have not set it up yet, please do so now. 
+
+* Go to the [Azure portal](http://portal.azure.com).
+* Select Create a resource -> Databases -> Azure Database for PostgreSQL.
+* Specify the Server name to be javaee-cafe-db. Create a new resource group named javaee-cafe-group. Specify the login name to be postgres. Specify the password to be Secret123!. Hit 'Create'. It will take a moment for the database to deploy and be ready for use.
+
+
 
 ## Prerequisites
 
