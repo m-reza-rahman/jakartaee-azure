@@ -33,24 +33,28 @@ We will be using the fully managed PostgreSQL offering in Azure for this demo. I
 * Browse to where you have this repository code in your file system. You will now need to copy the war file to where we will build the Docker image next. You will find the war file under javaee/javaee-cafe/target. Copy the war file to kubernetes/.
 * Open a terminal. Navigate to where you have this repository code in your file system. Navigate to the kubernetes/ directory.
 * Log in to Docker Hub using the docker login command:
+
    ```
    docker login
    ```
 * Build a Docker image and push the image to Docker Hub:
+
    ```
-   docker build -t <your Docker Hub account>/javaee-cafe:v1 .
-   docker push <your Docker Hub account>/javaee-cafe:v1
+   docker build -t <your Docker Hub ID>/javaee-cafe:v1 .
+   docker push <your Docker Hub ID>/javaee-cafe:v1
    ```
-* Replace the `<your Docker Hub account>` value with your account name in `javaee-cafe.yml` file, then deploy the application:
+* Replace the `<your Docker Hub ID>` value with your account name in `javaee-cafe.yml` file.
+* Go to All resources. Find javaee-cafe-ip and click on it. On the Overview pane, copy down the IP address. Replace this value with the `<your static IP>` value in the `javaee-cafe.yml` file.
+* You can now deploy the application:
+
    ```
    kubectl create -f javaee-cafe.yml
    ```
-
-* Get the External IP address of the Service, then the application will be accessible at `http://<External IP Address>:9080/javaee-cafe`:
+* Get the External IP address of the Service, then the application will be accessible at `http://<External IP Address>/javaee-cafe`:
    ```
-   kubectl get svc javaee-cafe
+   kubectl get svc javaee-cafe --watch
    ```
-   > **Note:** It may take a few minutes for the load balancer to be created.
+   > **Note:** It may take a few minutes for the load balancer to be created. When the external IP changes over from *pending* just hit CTRL-C.
 
 * Scale your application:
    ```
@@ -58,7 +62,7 @@ We will be using the fully managed PostgreSQL offering in Azure for this demo. I
    ```
    
 ## Deleting the Resources
-* Delete the Java EE deployment:
+* Delete the application deployment:
    ```
    kubectl delete -f javaee-cafe.yml
    ```
