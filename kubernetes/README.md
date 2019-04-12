@@ -1,4 +1,4 @@
-# Java EE Application Server Clustering with Kubernetes
+# Deploying a Java EE application on Azure using Docker and Kubernetes
 
 This demo will show how to make application server administration, clustering, autodiscovery and load-balancing work with Docker clusters, networking, and Kubernetes deployments.
 
