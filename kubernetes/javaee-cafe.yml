@@ -13,13 +13,14 @@ spec:
     spec:
       containers:
       - name: javaee-cafe
-        image: <your Docker Hub account>/javaee-cafe:v1
+        image: rezarahman/javaee-cafe:v1
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: javaee-cafe
 spec:
+  loadBalancerIP: <your static IP>
   type: LoadBalancer
   ports:
     - port: 80
