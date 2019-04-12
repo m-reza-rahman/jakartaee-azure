@@ -20,6 +20,7 @@ kind: Service
 metadata:
   name: javaee-cafe
 spec:
+  loadBalancerIP: <your static IP>
   type: LoadBalancer
   ports:
     - port: 80
