@@ -3,3 +3,6 @@ target
 /.project
 .settings
 .metadata
+/.apt_generated/
+/.apt_generated_tests/
+/.factorypath

@@ -1,6 +1,6 @@
 #!/bin/bash
 # These commands are executed by the JBoss CLI.
-module add --name=org.postgres --resources=/home/site/deployments/tools/postgresql-42.2.4.jar --module-xml=/home/site/deployments/tools/postgres-module.xml
-/subsystem=datasources/jdbc-driver=postgres:add(driver-name="postgres",driver-module-name="org.postgres",driver-class-name="org.postgresql.Driver",driver-xa-datasource-class-name="org.postgresql.xa.PGXADataSource")
-data-source add --name=PostgresDS --driver-name=postgres --jndi-name=java:/jdbc/JavaEECafeDB --connection-url=jdbc:postgresql://javaee-cafe-db.postgres.database.azure.com:5432/postgres --user-name=postgres@javaee-cafe-db --password=Secret123! --use-ccm=true --max-pool-size=5 --blocking-timeout-wait-millis=5000 --enabled=true --driver-class=org.postgresql.Driver --exception-sorter-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter --jta=true --use-java-context=true --valid-connection-checker-class-name=org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker
+module add --name=org.postgresql --resources=/home/site/deployments/tools/postgresql-42.2.4.jar --module-xml=/home/site/deployments/tools/postgres-module.xml
+/subsystem=datasources/jdbc-driver=postgres:add(driver-name="postgres",driver-module-name="org.postgresql",driver-class-name="org.postgresql.Driver",driver-xa-datasource-class-name="org.postgresql.xa.PGXADataSource")
+data-source add --name="PostgresDS" --driver-name="postgres" --jndi-name="java:/jdbc/JavaEECafeDB" --connection-url="jdbc:postgresql://javaee-cafe-db.postgres.database.azure.com:5432/postgres" --user-name="postgres@javaee-cafe-db" --password="Secret123!" --enabled=true --use-java-context=true
 reload --use-current-server-config=true
