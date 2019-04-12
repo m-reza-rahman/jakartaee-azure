@@ -12,6 +12,7 @@ We will be using the fully managed PostgreSQL offering in Azure for this demo. I
 * Specify the Server name to be javaee-cafe-db. Create a new resource group named javaee-cafe-group. Specify the login name to be postgres. Specify the password to be Secret123!. Hit 'Create'. It will take a moment for the database to deploy and be ready for use.
 
 ## Setup the Kubernetes Cluster
+* You will first need to create the Kubernetes cluster. Go to the [Azure portal](http://portal.azure.com). Hit Create a resource -> Containers -> Kubernetes Service. Select the resource group to be javaee-cafe-group. Specify the cluster name as javaee-cafe-cluster. Hit Review + create. Hit Create. 
 
 - You need to have a Kubernetes cluster with kubectl installed and configured to use your cluster. We used the Google Cloud but you can use any Kubernetes capable platform such as IBM Cloud. You can even run Kubernetes locally.
 - You need to have docker cli installed and you must be signed into your Docker Hub account. To create a Docker Hub account go to [https://hub.docker.com](https://hub.docker.com).
