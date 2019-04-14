@@ -19,7 +19,7 @@ We will be using the fully managed PostgreSQL offering in Azure for this demo. I
 * In the portal, go to 'All resources'. Find and click on javaee-cafe.
 * Go to the Deployment Center. Select FTP -> Dashboard -> User Credentials. Enter wildfly as the username. Enter Secret12345! as the password. Click 'Save Credentials'.
 * Go to the Overview panel. Note down the FTP access information. Connect with your favorite FTP client.
-* Go to where this application is on your local machine. Got to the paas directory. Via FTP, upload the JDBC driver to the /home/site/deployments/tools/ directory in binary mode. The upload the jboss_cli_commands.cli and postgresql-module.xml files in text mode to the /home/site/deployments/tools/ directory. Finally, upload the startup.sh file in text mode to the /home directory.
+* Go to where this application is on your local machine. Got to the paas directory. Via FTP, upload the JDBC driver to the /home/site/deployments/tools/ directory *in binary mode*. The upload the jboss_cli_commands.cli and postgresql-module.xml files *in text mode* to the /home/site/deployments/tools/ directory. Finally, upload the startup.sh file *in text mode* to the /home directory.
 * Go back to the Overview panel for javaee-cafe and hit restart.
 
 https://javaee-cafe.azurewebsites.net
