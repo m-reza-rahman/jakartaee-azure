@@ -1,5 +1,5 @@
-# Deploying a Java EE application on Azure using Docker and Kubernetes
-This demo shows how you can deploy a Java EE application to Azure using Docker and Kubernetes. The following is how you run the demo.
+# Deploying a Java EE application on Azure using Docker
+This demo shows how you can deploy a Java EE application to Azure using Docker and Container Instances. The following is how you run the demo.
 
 ## Setup
 * You will need an Azure subscription. If you don't have one, you can get one for free for one year [here](https://azure.microsoft.com/en-us/free).
@@ -9,9 +9,12 @@ We will be using the fully managed PostgreSQL offering in Azure for this demo. I
 
 * Go to the [Azure portal](http://portal.azure.com).
 * Select Create a resource -> Databases -> Azure Database for PostgreSQL.
-* Specify the Server name to be javaee-cafe-db. Create a new resource group named javaee-cafe-group. Specify the login name to be postgres. Specify the password to be Secret123!. Hit 'Create'. It will take a moment for the database to deploy and be ready for use.
+* Specify the server name to be javaee-cafe-db. Create a new resource group named javaee-cafe-group. Specify the login name to be postgres. Specify the password to be Secret123!. Hit 'Create'. It will take a moment for the database to deploy and be ready for use.
+* In the portal, go to 'All resources'. Find and click on javaee-cafe-db. Open the connection security panel. Enable access to Azure services, disable SSL connection enforcement and then hit Save.
 
-## Setup the Kubernetes Cluster
+Once you are done exploring the demo, you should delete the javaee-cafe-group resource group. You can do this by going to the portal, going to resource groups, finding and clicking on javaee-cafe-group and hitting delete. This is especially important if you are not using a free subscription! If you do keep these resources around (for example to begin your own prototype), you should in the least use your own passwords and make the corresponding changes in the demo code.
+
+## Build and Publish the Docker Image
 * You will first need to create the Kubernetes cluster. Go to the [Azure portal](http://portal.azure.com). Hit Create a resource -> Containers -> Kubernetes Service. Select the resource group to be javaee-cafe-group. Specify the cluster name as javaee-cafe-cluster. Hit Review + create. Hit Create.
 * Next you will need to create a public static IP address. Go to the [Azure portal](http://portal.azure.com). Hit Create a resource. Search the marketplace for 'Public IP address'. Once you find it, hit 'Create'. Specify the name to be javaee-cafe-ip. Select the IP assignment type to be static. For the resoure group, *don't pick javaee-cafe-group*. Instead you will see something like MC_javaee-cafe-group_javaee-cafe-cluster_[some region]. Pick that and hit create.
 * Go to All resources. Find javaee-cafe-ip and click on it. On the Overview pane, copy down the IP address.
