@@ -35,3 +35,5 @@ Once you are done exploring the demo, you should delete the javaee-cafe-group re
 ## Deploy the Docker Image to Azure
 * Go to the [Azure portal](http://portal.azure.com). Hit Create a resource -> Containers -> Container Instances. Specify the container name to be javaee-cafe. Specify the container image to be <your Docker Hub ID>/javaee-cafe:v1. Select the resource group to be javaee-cafe-group. Hit OK.
 * Specify the DNS name to be javaee-cafe. Specify the port to be 8080. Hit OK. Then hit OK on the summary.
+* In the portal, go to 'All resources'. Find and click on javaee-cafe. In the overview panel, note the FQDN where the application is available.
+* The application will be accessible at `http://[FQDN]:8080/javaee-cafe`.
