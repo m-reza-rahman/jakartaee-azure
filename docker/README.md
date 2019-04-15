@@ -32,28 +32,6 @@ Once you are done exploring the demo, you should delete the javaee-cafe-group re
    docker push <your Docker Hub ID>/javaee-cafe:v1
    ```
 
-
-
-
-* Go to All resources. Find javaee-cafe-ip and click on it. On the Overview pane, copy down the IP address. Replace this value with the `<your static IP>` value in the `javaee-cafe.yml` file.
-* You can now deploy the application:
-
-   ```
-   kubectl create -f javaee-cafe.yml
-   ```
-* Get the External IP address of the Service, then the application will be accessible at `http://<External IP Address>/javaee-cafe`:
-   ```
-   kubectl get svc javaee-cafe --watch
-   ```
-  It may take a few minutes for the load balancer to be created. When the external IP changes over from *pending* to a valid IP, just hit Control-C to exit.
-
-* Scale your application:
-   ```
-   kubectl scale deployment javaee-cafe --replicas=3
-   ```
-   
-## Deleting the Resources
-* Delete the application deployment:
-   ```
-   kubectl delete -f javaee-cafe.yml
-   ```
+## Deploy the Docker Image to Azure
+* Go to the [Azure portal](http://portal.azure.com). Hit Create a resource -> Containers -> Container Instances. Specify the container name to be javaee-cafe. Specify the container image to be <your Docker Hub ID>/javaee-cafe:v1. Select the resource group to be javaee-cafe-group. Hit OK.
+* Specify the DNS name to be javaee-cafe. Specify the port to be 8080. Hit OK.
