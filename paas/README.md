@@ -44,7 +44,9 @@ The next step is to get the application up and running on managed WildFly. Follo
 </plugin>
 ```
 
-* It is now time to run the application. Go to Right click the application -> Run As -> Run on Server. Make sure to choose WildFly as the server going forward. Just accept the defaults and wait for the application to finish running.
+* It is now time to deploy and run the application on Azure. Right click the application -> Run As -> 'Maven build...'. Enter the name as 'Deploy to Azure'. Enter the goals as 'azure-webapp:deploy'. Hit run.
+
+Make sure to choose WildFly as the server going forward. Just accept the defaults and wait for the application to finish running.
 * Once the application runs, Eclise will open it up in a browser. The application is available at [http://localhost/javaee-cafe](http://localhost/javaee-cafe).
 
 * Once the application starts, you can test the REST service at the URL: http://[your public IP]/javaee-cafe/rest/coffees or via the JSF client at http://[your public IP]/javaee-cafe/index.xhtml.
