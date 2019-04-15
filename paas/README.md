@@ -29,6 +29,21 @@ The next step is to get the application up and running on managed WildFly. Follo
 
 * Get the javaee-cafe application in the PaaS directory into the IDE. In order to do that, go to File -> Import -> Maven -> Existing Maven Projects. Then browse to where you have this repository code in your file system and select paas/javaee-cafe. Accept the rest of the defaults and finish.
 * Once the application loads, you should do a full Maven build by going to Right click the application -> Run As -> Maven install.
+* You should note the pom.xml. In particular, we have included the configuration for the Azure Maven plugin we are going to use to deploy the application to managed WildFly:
+
+```xml
+<plugin>
+    <groupId>com.microsoft.azure</groupId>
+		<artifactId>azure-webapp-maven-plugin</artifactId>
+		<version>1.5.4</version>
+		<configuration>
+		    <appName>javaee-cafe</appName>
+			  <resourceGroup>javaee-cafe-group</resourceGroup>
+			  <linuxRuntime>wildfly 14-jre8</linuxRuntime>
+		</configuration>
+</plugin>
+```
+
 * It is now time to run the application. Go to Right click the application -> Run As -> Run on Server. Make sure to choose WildFly as the server going forward. Just accept the defaults and wait for the application to finish running.
 * Once the application runs, Eclise will open it up in a browser. The application is available at [http://localhost/javaee-cafe](http://localhost/javaee-cafe).
 
