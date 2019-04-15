@@ -34,13 +34,13 @@ The next step is to get the application up and running on managed WildFly. Follo
 ```xml
 <plugin>
     <groupId>com.microsoft.azure</groupId>
-		<artifactId>azure-webapp-maven-plugin</artifactId>
-		<version>1.5.4</version>
-		<configuration>
-		    <appName>javaee-cafe</appName>
-			  <resourceGroup>javaee-cafe-group</resourceGroup>
-			  <linuxRuntime>wildfly 14-jre8</linuxRuntime>
-		</configuration>
+    <artifactId>azure-webapp-maven-plugin</artifactId>
+    <version>1.5.4</version>
+    <configuration>
+        <appName>javaee-cafe</appName>
+        <resourceGroup>javaee-cafe-group</resourceGroup>
+        <linuxRuntime>wildfly 14-jre8</linuxRuntime>
+    </configuration>
 </plugin>
 ```
 
