@@ -10,77 +10,39 @@ We will be using the fully managed PostgreSQL offering in Azure for this demo. I
 * Go to the [Azure portal](http://portal.azure.com).
 * Select Create a resource -> Databases -> Azure Database for PostgreSQL.
 * Specify the Server name to be javaee-cafe-db. Create a new resource group named javaee-cafe-group. Specify the login name to be postgres. Specify the password to be Secret123!. Hit 'Create'. It will take a moment for the database to deploy and be ready for use. 
+* In the portal, go to 'All resources'. Find and click on javaee-cafe-db. Open the connection security panel. Enable access to Azure services, disable SSL connection enforcement and then hit Save.
 
-
-
-
-
-## Start the Application on a Virtual Machine
-The next step is to get the application up and running on a virtual machine. Follow the steps below to do so.
-
+## Setup Managed WildFly
 * Go to the [Azure portal](http://portal.azure.com).
-* Select Create a resource -> Compute -> Ubuntu Server [the latest featured stable version in Azure].
-* Enter the resource group as javaee-cafe-group. Enter the virtual machine name as javaee-cafe-server. Choose password based authentication instead of SSH. Enter wildfly as the username. Specify the password to be Secret12345!. Select 'Allow selected ports'. Pick the HTTP (80), HTTPS (443) and SSH (22) ports to open. Click next. Accept the defaults for disks and click next. Accept the defaults for networking and click next. Accept the defaults for management and click next. Accept the defaults for advanced options and click next. Accept the defaults for tags and click next. Hit 'Create'
-* Once the virtual machine is created, you'll need to find out its assigned public IP address. In the portal, go to 'All resources'. Find and click on javaee-cafe-server. In the overview panel, find and copy the public IP address.
-* In the portal, go to 'All resources'. Find and click on javaee-cafe-db. Open the connection security panel. For rule name, specify allow-server-access. For the start and end IP, enter the public IP for javaee-cafe-server you copied earlier. Make sure the rule is applied. Disable SSL connection enforcement and then hit Save.
-* In the portal, go to 'All resources'. Find and click on javaee-cafe-server. Click on 'Connect'. On the SSH tab, you should be able to find the command to connect to this virtual machine. It will look something like:
+* Select Create a resource -> Web -> Web App.
+* Enter javaee-cafe as application name and select javaee-cafe-group as the resource group. Choose Linux as the OS and WildFly as the runtime. Hit create.
+* In the portal, go to 'All resources'. Find and click on javaee-cafe.
+* Go to the Deployment Center. Select FTP -> Dashboard -> User Credentials. Enter wildfly as the username. Enter Secret12345! as the password. Click 'Save Credentials'.
+* Go to the Overview panel. Note down the FTP access information. Connect with your favorite FTP client.
+* Go to where this application is on your local machine. Got to the paas directory. Via FTP, upload the JDBC driver to the /home/site/deployments/tools/ directory *in binary mode*. The upload the jboss_cli_commands.cli and postgresql-module.xml files *in text mode* to the /home/site/deployments/tools/ directory. Finally, upload the startup.sh file *in text mode* to the /home directory.
+* Go back to the Overview panel for javaee-cafe and hit restart.
 
-	```
-	ssh wildfly@[some public IP]
-	```
-* Connect to the virtual machine by executing this command.
-* Install Maven by executing the following command. This will also install Java.
+## Start the Application on Managed WildFly
+The next step is to get the application up and running on managed WildFly. Follow the steps below to do so.
 
-	```
-	sudo apt install maven
-	```
-* Download WildFy by executing the following command:
+* Start Eclipse.
+* Get the javaee-cafe application in the PaaS directory into the IDE. In order to do that, go to File -> Import -> Maven -> Existing Maven Projects. Then browse to where you have this repository code in your file system and select paas/javaee-cafe. Accept the rest of the defaults and finish.
+* Once the application loads, you should do a full Maven build by going to Right click the application -> Run As -> Maven install.
+* You should note the pom.xml. In particular, we have included the configuration for the Azure Maven plugin we are going to use to deploy the application to managed WildFly:
 
-	```
-	wget https://download.jboss.org/wildfly/16.0.0.Final/wildfly-16.0.0.Final.zip
-	```
-* Install unzip by executing the following command:
+```xml
+<plugin>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>azure-webapp-maven-plugin</artifactId>
+    <version>1.5.4</version>
+    <configuration>
+        <appName>javaee-cafe</appName>
+        <resourceGroup>javaee-cafe-group</resourceGroup>
+        <linuxRuntime>wildfly 14-jre8</linuxRuntime>
+    </configuration>
+</plugin>
+```
 
-	```
-	sudo apt install unzip
-	```	
-* Unzip WildFy by executing the following command:
-
-	```
-	unzip wildfly-16.0.0.Final.zip
-	```
-* Download the application by executing the following command:
-
-	```
-	wget https://github.com/m-reza-rahman/javaee-azure/archive/master.zip
-	```
-* Unzip the application by executing the following command:
-
-	```
-	unzip master.zip
-	```
-*  Change directories to where the application was extracted. Move to the javaee/javaee-cafe directory. Build the application by executing:
-
-	```
-	mvn install
-	```
-* Change directories back to home.
-* Execute the following commands to install the JDBC driver, the standalone configuration and the application:
-	```
-	mkdir -p wildfly-16.0.0.Final/modules/org/postgresql/main
-	cp javaee-azure-master/javaee/server/postgresql-42.2.4.jar wildfly-16.0.0.Final/modules/org/postgresql/main/
-	cp javaee-azure-master/javaee/server/module.xml wildfly-16.0.0.Final/modules/org/postgresql/main/
-	cp javaee-azure-master/iaas/standalone.xml wildfly-16.0.0.Final/standalone/configuration/
-	cp javaee-azure-master/javaee/javaee-cafe/target/javaee-cafe.war wildfly-16.0.0.Final/standalone/deployments/
-	```
-* Change directories to wildfly-16.0.0.Final/bin. Run the following command to get root shell access:
-
-	```
-	sudo su
-	```
-* Execute the following command to start WildFly:
-	```
-	./standalone.sh
-	```
-* In the portal, go to 'All resources'. Find and click on javaee-cafe-server. In the overview panel, find and copy the public IP address.
-* Once the application starts, you can test the REST service at the URL: http://[your public IP]/javaee-cafe/rest/coffees or via the JSF client at http://[your public IP]/javaee-cafe/index.xhtml.
+* It is now time to deploy and run the application on Azure. Right click the application -> Run As -> 'Maven build...'. Enter the name as 'Deploy to Azure'. Enter the goals as 'azure-webapp:deploy'. Hit run.
+* Keep an eye on the console output. You will see when the application is deployed. The application will be available at [https://javaee-cafe.azurewebsites.net](https://javaee-cafe.azurewebsites.net).
+* Once the application starts, you can test the REST service at the URL: https://javaee-cafe.azurewebsites.net/rest/coffees or via the JSF client at https://javaee-cafe.azurewebsites.net/index.xhtml.
