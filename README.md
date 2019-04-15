@@ -6,6 +6,7 @@ The basic Java EE application used throughout is in the [javaee](/javaee) folder
 Azure pathways for Java EE applications include:
 * Deploying a Java EE application on Azure using IaaS. The [iaas](/iaas) folder shows how this is done.
 * Deploying a Java EE application on Azure using PaaS. The [paas](/paas) folder shows how this is done.
+* Deploying a Java EE application on Azure using Docker. The [docker](/docker) folder shows how this is done.
 * Deploying a Java EE application on Azure using Docker and Kubernetes. The [kubernetes](/kubernetes) folder shows how this is done.
 
 The demos use Java EE 8, WildFly and PostgreSQL.
