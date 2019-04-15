@@ -22,8 +22,6 @@ We will be using the fully managed PostgreSQL offering in Azure for this demo. I
 * Go to where this application is on your local machine. Got to the paas directory. Via FTP, upload the JDBC driver to the /home/site/deployments/tools/ directory *in binary mode*. The upload the jboss_cli_commands.cli and postgresql-module.xml files *in text mode* to the /home/site/deployments/tools/ directory. Finally, upload the startup.sh file *in text mode* to the /home directory.
 * Go back to the Overview panel for javaee-cafe and hit restart.
 
-https://javaee-cafe.azurewebsites.net
-
 ## Start the Application on Managed WildFly
 The next step is to get the application up and running on managed WildFly. Follow the steps below to do so.
 
@@ -45,8 +43,5 @@ The next step is to get the application up and running on managed WildFly. Follo
 ```
 
 * It is now time to deploy and run the application on Azure. Right click the application -> Run As -> 'Maven build...'. Enter the name as 'Deploy to Azure'. Enter the goals as 'azure-webapp:deploy'. Hit run.
-
-Make sure to choose WildFly as the server going forward. Just accept the defaults and wait for the application to finish running.
-* Once the application runs, Eclise will open it up in a browser. The application is available at [http://localhost/javaee-cafe](http://localhost/javaee-cafe).
-
-* Once the application starts, you can test the REST service at the URL: http://[your public IP]/javaee-cafe/rest/coffees or via the JSF client at http://[your public IP]/javaee-cafe/index.xhtml.
+* Keep an eye on the console output. You will see when the application is deployed. The application will be available at [https://javaee-cafe.azurewebsites.net](https://javaee-cafe.azurewebsites.net).
+* Once the application starts, you can test the REST service at the URL: https://javaee-cafe.azurewebsites.net/rest/coffees or via the JSF client at https://javaee-cafe.azurewebsites.net/index.xhtml.
