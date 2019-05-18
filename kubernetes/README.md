@@ -16,9 +16,6 @@ Once you are done exploring the demo, you should delete the javaee-cafe-group re
 
 ## Setup the Kubernetes Cluster
 * You will first need to create the Kubernetes cluster. Go to the [Azure portal](http://portal.azure.com). Hit Create a resource -> Containers -> Kubernetes Service. Select the resource group to be javaee-cafe-group. Specify the cluster name as javaee-cafe-cluster. Hit Review + create. Hit Create.
-* Next you will need to create a public static IP address. Go to the [Azure portal](http://portal.azure.com). Hit Create a resource. Search the marketplace for 'Public IP address'. Once you find it, hit 'Create'. Specify the name to be javaee-cafe-ip. Select the IP assignment type to be static. For the resoure group, *don't pick javaee-cafe-group*. Instead you will see something like MC_javaee-cafe-group_javaee-cafe-cluster_[some region]. Pick that and hit create.
-* Go to All resources. Find javaee-cafe-ip and click on it. On the Overview pane, copy down the IP address.
-* In the portal, go to 'All resources'. Find and click on javaee-cafe-db. Open the connection security panel. For rule name, specify allow-cluster-access. For the start and end IP, enter the public IP for javaee-cafe-ip you copied earlier. Make sure the rule is applied. Disable SSL connection enforcement and then hit Save.
 
 ## Setup Kubernetes Tooling
 * You will now need to setup kubectl. [Here](https://kubernetes.io/docs/tasks/tools/install-kubectl/) are instructions on how to do that.
@@ -48,7 +45,6 @@ Once you are done exploring the demo, you should delete the javaee-cafe-group re
    docker push <your Docker Hub ID>/javaee-cafe:v1
    ```
 * Replace the `<your Docker Hub ID>` value with your account name in `javaee-cafe.yml` file.
-* Go to All resources. Find javaee-cafe-ip and click on it. On the Overview pane, copy down the IP address. Replace this value with the `<your static IP>` value in the `javaee-cafe.yml` file.
 * You can now deploy the application:
 
    ```
