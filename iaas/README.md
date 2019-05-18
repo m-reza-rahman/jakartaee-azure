@@ -10,6 +10,7 @@ We will be using the fully managed PostgreSQL offering in Azure for this demo. I
 * Go to the [Azure portal](http://portal.azure.com).
 * Select Create a resource -> Databases -> Azure Database for PostgreSQL.
 * Specify the Server name to be javaee-cafe-db. Create a new resource group named javaee-cafe-group. Specify the login name to be postgres. Specify the password to be Secret123!. Hit 'Create'. It will take a moment for the database to deploy and be ready for use.
+* In the portal, go to 'All resources'. Find and click on javaee-cafe-db. Open the connection security panel. Enable access to Azure services, disable SSL connection enforcement and then hit Save.
 
 Once you are done exploring the demo, you should delete the javaee-cafe-group resource group. You can do this by going to the portal, going to resource groups, finding and clicking on javaee-cafe-group and hitting delete. This is especially important if you are not using a free subscription! If you do keep these resources around (for example to begin your own prototype), you should in the least use your own passwords and make the corresponding changes in the demo code.
 
