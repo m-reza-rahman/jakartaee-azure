@@ -1,7 +1,7 @@
 # Deploying a Java EE Application on Azure using PaaS
 This demo shows how you can deploy a Java EE application to Azure using fully managed WildFly. The following is how you run the demo.
 
-Note that the Azure managed WildFly offering is currently under public preview. You are encouraged to particularly try this service out and provide feedback! 
+*Note that the Azure managed WildFly offering is currently under public preview. You are encouraged to particularly try this service out and provide feedback!*
 
 ## Setup
 * You will need an Azure subscription. If you don't have one, you can get one for free for one year [here](https://azure.microsoft.com/en-us/free).
