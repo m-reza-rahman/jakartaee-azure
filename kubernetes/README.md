@@ -28,6 +28,7 @@ Once you are done exploring the demo, you should delete the javaee-cafe-group re
    ```
    az aks get-credentials --resource-group javaee-cafe-group --name javaee-cafe-cluster
    ```
+  You may need to delete the ~/.kube/config directory.
 * You need to have docker cli installed and you must be signed into your Docker Hub account. To create a Docker Hub account go to [https://hub.docker.com](https://hub.docker.com).
 
 ## Deploy the Java EE Application on Kubernetes
