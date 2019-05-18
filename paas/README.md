@@ -10,7 +10,7 @@ This demo shows how you can deploy a Java EE application to Azure using fully ma
 We will be using the fully managed PostgreSQL offering in Azure for this demo. If you have not set it up yet, please do so now. 
 
 * Go to the [Azure portal](http://portal.azure.com).
-* Select Create a resource -> Databases -> Azure Database for PostgreSQL.
+* Select Create a resource -> Databases -> Azure Database for PostgreSQL. Select a single server.
 * Specify the Server name to be javaee-cafe-db. Create a new resource group named javaee-cafe-group. Specify the login name to be postgres. Specify the password to be Secret123!. Hit 'Create'. It will take a moment for the database to deploy and be ready for use. 
 * In the portal, go to 'All resources'. Find and click on javaee-cafe-db. Open the connection security panel. Enable access to Azure services, disable SSL connection enforcement and then hit Save.
 
