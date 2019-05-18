@@ -8,8 +8,9 @@ This demo shows how you can deploy a Java EE application to Azure using Linux vi
 We will be using the fully managed PostgreSQL offering in Azure for this demo. If you have not set it up yet, please do so now. 
 
 * Go to the [Azure portal](http://portal.azure.com).
-* Select Create a resource -> Databases -> Azure Database for PostgreSQL.
+* Select Create a resource -> Databases -> Azure Database for PostgreSQL. Select a single server.
 * Specify the Server name to be javaee-cafe-db. Create a new resource group named javaee-cafe-group. Specify the login name to be postgres. Specify the password to be Secret123!. Hit 'Create'. It will take a moment for the database to deploy and be ready for use.
+* In the portal, go to 'All resources'. Find and click on javaee-cafe-db. Open the connection security panel. Enable access to Azure services, disable SSL connection enforcement and then hit Save.
 
 Once you are done exploring the demo, you should delete the javaee-cafe-group resource group. You can do this by going to the portal, going to resource groups, finding and clicking on javaee-cafe-group and hitting delete. This is especially important if you are not using a free subscription! If you do keep these resources around (for example to begin your own prototype), you should in the least use your own passwords and make the corresponding changes in the demo code.
 
@@ -18,16 +19,19 @@ The next step is to get the application up and running on a virtual machine. Fol
 
 * Go to the [Azure portal](http://portal.azure.com).
 * Select Create a resource -> Compute -> Ubuntu Server [the latest featured stable version in Azure].
-* Enter the resource group as javaee-cafe-group. Enter the virtual machine name as javaee-cafe-server. Choose password based authentication instead of SSH. Enter wildfly as the username. Specify the password to be Secret12345!. Select 'Allow selected ports'. Pick the HTTP (80), HTTPS (443) and SSH (22) ports to open. Click next. Accept the defaults for disks and click next. Accept the defaults for networking and click next. Accept the defaults for management and click next. Accept the defaults for advanced options and click next. Accept the defaults for tags and click next. Hit 'Create'
-* Once the virtual machine is created, you'll need to find out its assigned public IP address. In the portal, go to 'All resources'. Find and click on javaee-cafe-server. In the overview panel, find and copy the public IP address.
-* In the portal, go to 'All resources'. Find and click on javaee-cafe-db. Open the connection security panel. For rule name, specify allow-server-access. For the start and end IP, enter the public IP for javaee-cafe-server you copied earlier. Make sure the rule is applied. Disable SSL connection enforcement and then hit Save.
+* Enter the resource group as javaee-cafe-group. Enter the virtual machine name as javaee-cafe-server. Choose password based authentication instead of SSH. Enter wildfly as the username. Specify the password to be Secret12345!. Select 'Allow selected ports'. Pick the HTTP (80), HTTPS (443) and SSH (22) ports to open. Hit 'Create'.
 * In the portal, go to 'All resources'. Find and click on javaee-cafe-server. Click on 'Connect'. On the SSH tab, you should be able to find the command to connect to this virtual machine. It will look something like:
 
 	```
 	ssh wildfly@[some public IP]
 	```
 * Connect to the virtual machine by executing this command.
-* Install Maven by executing the following command. This will also install Java.
+* Install Java by executing the following command.
+
+	```
+	sudo apt install openjdk-8-jdk
+	```
+* Install Maven by executing the following command.
 
 	```
 	sudo apt install maven

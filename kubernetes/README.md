@@ -10,14 +10,12 @@ We will be using the fully managed PostgreSQL offering in Azure for this demo. I
 * Go to the [Azure portal](http://portal.azure.com).
 * Select Create a resource -> Databases -> Azure Database for PostgreSQL.
 * Specify the Server name to be javaee-cafe-db. Create a new resource group named javaee-cafe-group. Specify the login name to be postgres. Specify the password to be Secret123!. Hit 'Create'. It will take a moment for the database to deploy and be ready for use.
+* In the portal, go to 'All resources'. Find and click on javaee-cafe-db. Open the connection security panel. Enable access to Azure services, disable SSL connection enforcement and then hit Save.
 
 Once you are done exploring the demo, you should delete the javaee-cafe-group resource group. You can do this by going to the portal, going to resource groups, finding and clicking on javaee-cafe-group and hitting delete. This is especially important if you are not using a free subscription! If you do keep these resources around (for example to begin your own prototype), you should in the least use your own passwords and make the corresponding changes in the demo code.
 
 ## Setup the Kubernetes Cluster
 * You will first need to create the Kubernetes cluster. Go to the [Azure portal](http://portal.azure.com). Hit Create a resource -> Containers -> Kubernetes Service. Select the resource group to be javaee-cafe-group. Specify the cluster name as javaee-cafe-cluster. Hit Review + create. Hit Create.
-* Next you will need to create a public static IP address. Go to the [Azure portal](http://portal.azure.com). Hit Create a resource. Search the marketplace for 'Public IP address'. Once you find it, hit 'Create'. Specify the name to be javaee-cafe-ip. Select the IP assignment type to be static. For the resoure group, *don't pick javaee-cafe-group*. Instead you will see something like MC_javaee-cafe-group_javaee-cafe-cluster_[some region]. Pick that and hit create.
-* Go to All resources. Find javaee-cafe-ip and click on it. On the Overview pane, copy down the IP address.
-* In the portal, go to 'All resources'. Find and click on javaee-cafe-db. Open the connection security panel. For rule name, specify allow-cluster-access. For the start and end IP, enter the public IP for javaee-cafe-ip you copied earlier. Make sure the rule is applied. Disable SSL connection enforcement and then hit Save.
 
 ## Setup Kubernetes Tooling
 * You will now need to setup kubectl. [Here](https://kubernetes.io/docs/tasks/tools/install-kubectl/) are instructions on how to do that.
@@ -27,6 +25,7 @@ Once you are done exploring the demo, you should delete the javaee-cafe-group re
    ```
    az aks get-credentials --resource-group javaee-cafe-group --name javaee-cafe-cluster
    ```
+  If you get an error about an already existing resource, you may need to delete the ~/.kube directory.
 * You need to have docker cli installed and you must be signed into your Docker Hub account. To create a Docker Hub account go to [https://hub.docker.com](https://hub.docker.com).
 
 ## Deploy the Java EE Application on Kubernetes
@@ -46,7 +45,6 @@ Once you are done exploring the demo, you should delete the javaee-cafe-group re
    docker push <your Docker Hub ID>/javaee-cafe:v1
    ```
 * Replace the `<your Docker Hub ID>` value with your account name in `javaee-cafe.yml` file.
-* Go to All resources. Find javaee-cafe-ip and click on it. On the Overview pane, copy down the IP address. Replace this value with the `<your static IP>` value in the `javaee-cafe.yml` file.
 * You can now deploy the application:
 
    ```
