@@ -31,7 +31,7 @@ The next step is to get the application up and running on a virtual machine. Fol
 * Install Java by executing the following command.
 
 	```
-        sudo apt-get install openjdk-8-jdk
+	sudo apt-get install openjdk-8-jdk
 	```
 * Install Maven by executing the following command.
 
