@@ -48,7 +48,7 @@
 				<artifactId>azure-webapp-maven-plugin</artifactId>
 				<version>1.5.4</version>
 				<configuration>
-					<appName>javaee-cafe</appName>
+					<appName>javaee-cafe-web</appName>
 					<resourceGroup>javaee-cafe-group</resourceGroup>
 					<linuxRuntime>wildfly 14-jre8</linuxRuntime>
 				</configuration>
