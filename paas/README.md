@@ -19,7 +19,7 @@ Once you are done exploring the demo, you should delete the javaee-cafe-group re
 ## Setup Managed WildFly
 * Go to the [Azure portal](http://portal.azure.com).
 * Select Create a resource -> Web -> Web App.
-* Enter javaee-cafe-web as application name and select javaee-cafe-group as the resource group. Choose Linux as the OS and WildFly as the runtime. Hit create.
+* Enter javaee-cafe-web as application name and select javaee-cafe-group as the resource group. Choose Linux as the OS and WildFly as the runtime. Hit next to setup monitoring. Set up a new Application Insights configuration named javaee-cafe-insights. Hit create.
 * In the portal, go to 'All resources'. Find and click on javaee-cafe-web.
 * Go to the Deployment Center. Select FTP -> Dashboard -> User Credentials. Enter wildfly as the username. Enter Secret12345! as the password. Click 'Save Credentials'.
 * Go to the Overview panel. Note down the FTP access information. Connect with your favorite FTP client.
