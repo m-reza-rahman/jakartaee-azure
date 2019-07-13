@@ -158,7 +158,7 @@
                     </security>
                 </datasource>
                 <datasource jndi-name="java:/jdbc/JavaEECafeDB" pool-name="PostgresDS" enabled="true" use-java-context="true">
-                    <connection-property name="url">jdbc:postgresql://javaee-cafe-db.postgres.database.azure.com:5432/postgres</connection-property>
+                    <connection-property name="url">jdbc:postgresql://javaee-cafe-db-reza.postgres.database.azure.com:5432/postgres</connection-property>
                     <driver>postgres</driver>
                     <security>
                         <user-name>postgres@javaee-cafe-db</user-name>
