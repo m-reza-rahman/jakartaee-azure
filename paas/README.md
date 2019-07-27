@@ -27,6 +27,13 @@ Once you are done exploring the demo, you should delete the javaee-cafe-group re
 * In the portal, go to 'All resources'. Find and click on javaee-cafe-web. Go to Configuration -> General settings -> Startup Command. Specify /site/deployments/tools/startup.sh as the startup command. Hit save.
 * Go back to the Overview panel for javaee-cafe and hit restart.
 
+## Install the Azure CLI
+* In order to deploy the application, we will need to [install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Open a console and execute the following to log onto Azure.
+
+	```
+	az login    
+	```
 ## Start the Application on Managed WildFly
 The next step is to get the application up and running on managed WildFly. Follow the steps below to do so.
 
