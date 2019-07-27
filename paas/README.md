@@ -23,8 +23,8 @@ Once you are done exploring the demo, you should delete the javaee-cafe-group re
 * In the portal, go to 'All resources'. Find and click on javaee-cafe-web.
 * Go to the Deployment Center. Select FTP -> Dashboard -> User Credentials (note that FTP is just one deployment option in App Service). Enter wildfly as the username. Enter Secret12345! as the password. Click 'Save Credentials'.
 * Go to the Overview panel. Note down the FTP access information. Connect with your favorite FTP client.
-* Go to where this application is on your local machine. Got to the paas directory. Via FTP, upload the JDBC driver to the /home/site/deployments/tools/ directory *in binary mode*. Then upload the jboss_cli_commands.cli, postgresql-module.xml and startup.sh files *in text mode* to the /home/site/deployments/tools/ directory.
-* In the portal, go to 'All resources'. Find and click on javaee-cafe-web. Go to Configuration -> General settings -> Startup Command. Specify /home/site/deployments/tools/startup.sh as the startup command. Hit save.
+* Go to where this application is on your local machine. Got to the paas directory. Via FTP, upload the JDBC driver to the /site/deployments/tools/ directory *in binary mode*. Then upload the jboss_cli_commands.cli, postgresql-module.xml and startup.sh files *in text mode* to the /site/deployments/tools/ directory.
+* In the portal, go to 'All resources'. Find and click on javaee-cafe-web. Go to Configuration -> General settings -> Startup Command. Specify /site/deployments/tools/startup.sh as the startup command. Hit save.
 * Go back to the Overview panel for javaee-cafe and hit restart.
 
 ## Start the Application on Managed WildFly
