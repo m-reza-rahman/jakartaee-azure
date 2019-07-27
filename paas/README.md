@@ -32,7 +32,7 @@ Once you are done exploring the demo, you should delete the javaee-cafe-group re
 * Open a console and execute the following to log onto Azure.
 
 	```
-	az login    
+	az login
 	```
 ## Start the Application on Managed WildFly
 The next step is to get the application up and running on managed WildFly. Follow the steps below to do so.
