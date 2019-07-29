@@ -25,7 +25,7 @@ The next step is to get the application up and running. Follow the steps below t
 * Go to the 'Servers' panel, right click. Select New -> Server -> Red Hat JBoss Middleware -> JBoss AS, WildFly and EAP Server Tools. Click next. Accept the license agreement, click 'Finish'.
 * After the Eclipse WildFly adapters are done installing, go to the 'Servers' panel again, right click. Select New -> Server -> JBoss Community and select the latest WildFly version. Choose the defaults on the next screen and hit 'Next'. Select 'Download and install runtime..." and select the latest stable version of WildFly. Hit next, accept the license agreement. Hit next again. Select where you want WildFly downloaded and installed. Click 'Finish'. Keep the defaults and hit 'Finish'. WildFly is now setup in Eclipse.
 * Go to the directory where you have WildFly installed.
-* Create a new directory org/postgresql/main within /modules.
+* Create a new directory structure org/postgresql/main within /modules.
 * Copy the Postgres driver and the corresponding module.xml to the newly created directory. These files are located in the javaee/server directory where you downloaded the application code.
 * From the same javaee/server directory, copy the standalone.xml file to the /standalone/configuration directory of the WildFly installation.
 * Get the javaee-cafe application into the IDE. In order to do that, go to File -> Import -> Maven -> Existing Maven Projects. Then browse to where you have this repository code in your file system and select javaee/javaee-cafe. Accept the rest of the defaults and finish.
