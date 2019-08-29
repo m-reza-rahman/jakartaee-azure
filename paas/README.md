@@ -19,13 +19,13 @@ Once you are done exploring the demo, you should delete the javaee-cafe-group-`<
 ## Setup Managed WildFly
 * Go to the [Azure portal](http://portal.azure.com).
 * Select Create a resource -> Web -> Web App.
-* Enter javaee-cafe-web as application name and select javaee-cafe-group as the resource group. Choose Linux as the OS and WildFly as the runtime. Hit create.
-* In the portal, go to 'All resources'. Find and click on javaee-cafe-web.
+* Enter javaee-cafe-web-`<your suffix>` (the suffix could be your first name such as "reza") as application name and select javaee-cafe-group-`<your suffix>` as the resource group. Choose Linux as the OS and WildFly as the runtime. Hit create.
+* In the portal, go to 'All resources'. Find and click on javaee-cafe-web-`<your suffix>`.
 * Go to the Deployment Center. Select FTP -> Dashboard -> User Credentials (note that FTP is just one deployment option in App Service). Enter wildfly as the username. Enter Secret12345! as the password. Click 'Save Credentials'.
 * Go to the Overview panel. Note down the FTP access information. Connect with your favorite FTP client.
 * Go to where this application is on your local machine. Got to the paas directory. Via FTP, upload the JDBC driver to the /site/deployments/tools/ directory *in binary mode*. Then upload the jboss_cli_commands.cli, postgresql-module.xml and startup.sh files *in text mode* to the /site/deployments/tools/ directory.
-* In the portal, go to 'All resources'. Find and click on javaee-cafe-web. Go to Configuration -> General settings -> Startup Command. Specify /home/site/deployments/tools/startup.sh as the startup command. Hit save.
-* Go back to the Overview panel for javaee-cafe and hit restart.
+* In the portal, go to 'All resources'. Find and click on javaee-cafe-web-`<your suffix>`. Go to Configuration -> General settings -> Startup Command. Specify /home/site/deployments/tools/startup.sh as the startup command. Hit save.
+* Go back to the Overview panel and hit restart.
 
 ## Install the Azure CLI
 * In order to deploy the application, we will need to [install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -48,7 +48,7 @@ The next step is to get the application up and running on managed WildFly. Follo
     <artifactId>azure-webapp-maven-plugin</artifactId>
     <version>1.5.4</version>
     <configuration>
-        <appName>javaee-cafe-web</appName>
+        <appName>javaee-cafe-web-<your suffix></appName>
         <resourceGroup>javaee-cafe-group</resourceGroup>
         <linuxRuntime>wildfly 14-jre8</linuxRuntime>
     </configuration>
@@ -56,5 +56,5 @@ The next step is to get the application up and running on managed WildFly. Follo
 ```
 
 * It is now time to deploy and run the application on Azure. Right click the application -> Run As -> 'Maven build...'. Enter the name as 'Deploy to Azure'. Enter the goals as 'azure-webapp:deploy'. Hit run.
-* Keep an eye on the console output. You will see when the application is deployed. The application will be available at [https://javaee-cafe-web.azurewebsites.net](https://javaee-cafe-web.azurewebsites.net).
-* Once the application starts, you can test the REST service at the URL: https://javaee-cafe-web.azurewebsites.net/rest/coffees or via the JSF client at https://javaee-cafe-web.azurewebsites.net/index.xhtml.
+* Keep an eye on the console output. You will see when the application is deployed. The application will be available at https://javaee-cafe-web-`<your suffix>`.azurewebsites.net.
+* Once the application starts, you can test the REST service at the URL: https://javaee-cafe-web-`<your suffix>`.azurewebsites.net/rest/coffees or via the JSF client at https://javaee-cafe-web-`<your suffix>`.azurewebsites.net/index.xhtml.
