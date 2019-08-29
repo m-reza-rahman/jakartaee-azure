@@ -9,18 +9,18 @@ We will be using the fully managed PostgreSQL offering in Azure for this demo. I
 
 * Go to the [Azure portal](http://portal.azure.com).
 * Select Create a resource -> Databases -> Azure Database for PostgreSQL. Select a single server.
-* Specify the Server name to be javaee-cafe-db. Create a new resource group named javaee-cafe-group. Specify the login name to be postgres. Specify the password to be Secret123!. Hit 'Create'. It will take a moment for the database to deploy and be ready for use.
-* In the portal, go to 'All resources'. Find and click on javaee-cafe-db. Open the connection security panel. Enable access to Azure services, disable SSL connection enforcement and then hit Save.
+* Specify the Server name to be javaee-cafe-db-`<your suffix>` (the suffix could be your first name such as "reza"). Create a new resource group named javaee-cafe-group-`<your suffix>` (the suffix could be your first name such as "reza"). Specify the login name to be postgres. Specify the password to be Secret123!. Hit 'Create'. It will take a moment for the database to deploy and be ready for use.
+* In the portal, go to 'All resources'. Find and click on javaee-cafe-db-`<your suffix>`. Open the connection security panel. Enable access to Azure services, disable SSL connection enforcement and then hit Save.
 
-Once you are done exploring the demo, you should delete the javaee-cafe-group resource group. You can do this by going to the portal, going to resource groups, finding and clicking on javaee-cafe-group and hitting delete. This is especially important if you are not using a free subscription! If you do keep these resources around (for example to begin your own prototype), you should in the least use your own passwords and make the corresponding changes in the demo code.
+Once you are done exploring the demo, you should delete the javaee-cafe-group-`<your suffix>` resource group. You can do this by going to the portal, going to resource groups, finding and clicking on javaee-cafe-group-`<your suffix>` and hitting delete. This is especially important if you are not using a free subscription! If you do keep these resources around (for example to begin your own prototype), you should in the least use your own passwords and make the corresponding changes in the demo code.
 
 ## Start the Application on a Virtual Machine
 The next step is to get the application up and running on a virtual machine. Follow the steps below to do so.
 
 * Go to the [Azure portal](http://portal.azure.com).
 * Select Create a resource -> Compute -> Ubuntu Server [the latest featured stable version in Azure].
-* Enter the resource group as javaee-cafe-group. Enter the virtual machine name as javaee-cafe-server. Choose password based authentication instead of SSH. Enter wildfly as the username. Specify the password to be Secret12345!. Select 'Allow selected ports'. Pick the HTTP (80), HTTPS (443) and SSH (22) ports to open. Hit 'Create'.
-* In the portal, go to 'All resources'. Find and click on javaee-cafe-server. Click on 'Connect'. On the SSH tab, you should be able to find the command to connect to this virtual machine. It will look something like:
+* Enter the resource group as javaee-cafe-group-`<your suffix>`. Enter the virtual machine name as javaee-cafe-server-`<your suffix>` (the suffix could be your first name such as "reza"). Choose password based authentication instead of SSH. Enter wildfly as the username. Specify the password to be Secret12345!. Select 'Allow selected ports'. Pick the HTTP (80), HTTPS (443) and SSH (22) ports to open. Hit 'Create'.
+* In the portal, go to 'All resources'. Find and click on javaee-cafe-server-`<your suffix>`. Click on 'Connect'. On the SSH tab, you should be able to find the command to connect to this virtual machine. It will look something like:
 
 	```
 	ssh wildfly@[some public IP]
@@ -89,5 +89,5 @@ The next step is to get the application up and running on a virtual machine. Fol
 	```
 	./standalone.sh
 	```
-* In the portal, go to 'All resources'. Find and click on javaee-cafe-server. In the overview panel, find and copy the public IP address.
+* In the portal, go to 'All resources'. Find and click on javaee-cafe-server-`<your suffix>`. In the overview panel, find and copy the public IP address.
 * Once the application starts, you can test the REST service at the URL: http://[your public IP]/javaee-cafe/rest/coffees or via the JSF client at http://[your public IP]/javaee-cafe/index.xhtml.
