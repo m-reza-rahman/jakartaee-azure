@@ -18,7 +18,7 @@ Once you are done exploring the demo, you should delete the javaee-cafe-group-`<
 ## Start the Application on a Virtual Machine
 The next step is to get the application up and running on a virtual machine. Follow the steps below to do so.
 
-* Clone this repository into your own GitHub account. Make sure to update the [iaas/standalone.yml](iaas/standalone.yml) file to replace occurrences of `reza` with `<your suffix>`.
+* Clone this repository into your own GitHub account. Make sure to update the [iaas/standalone.xml](iaas/standalone.xml) file to replace occurrences of `reza` with `<your suffix>`.
 * Go to the [Azure portal](http://portal.azure.com).
 * Select Create a resource -> Compute -> Ubuntu Server [the latest featured stable version in Azure].
 * Enter the resource group as javaee-cafe-group-`<your suffix>`. Enter the virtual machine name as javaee-cafe-server-`<your suffix>` (the suffix could be your first name such as "reza"). Choose password based authentication instead of SSH. Enter wildfly as the username. Specify the password to be Secret12345!. Select 'Allow selected ports'. Pick the HTTP (80), HTTPS (443) and SSH (22) ports to open. Hit 'Create'.
