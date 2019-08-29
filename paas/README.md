@@ -39,7 +39,7 @@ The next step is to get the application up and running on managed WildFly. Follo
 
 * Start Eclipse.
 * Get the javaee-cafe application in the PaaS directory into the IDE. In order to do that, go to File -> Import -> Maven -> Existing Maven Projects. Then browse to where you have this repository code in your file system and select paas/javaee-cafe. Accept the rest of the defaults and finish.
-* Once the application loads, you should do a full Maven build by going to Right click the application -> Run As -> Maven install.
+* Once the application loads, open the [pom.xml](javaee-cafe/pom.xml) file and replace occurrences of `reza` with `<your suffix>`. You should do a full Maven build by going to Right click the application -> Run As -> Maven install.
 * You should note the pom.xml. In particular, we have included the configuration for the Azure Maven plugin we are going to use to deploy the application to managed WildFly:
 
 ```xml
