@@ -49,7 +49,7 @@ The next step is to get the application up and running on managed WildFly. Follo
     <version>1.5.4</version>
     <configuration>
         <appName>javaee-cafe-web-<your suffix></appName>
-        <resourceGroup>javaee-cafe-group</resourceGroup>
+        <resourceGroup>javaee-cafe-group-<your suffix></resourceGroup>
         <linuxRuntime>wildfly 14-jre8</linuxRuntime>
     </configuration>
 </plugin>
