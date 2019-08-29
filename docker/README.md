@@ -19,7 +19,7 @@ Once you are done exploring the demo, you should delete the javaee-cafe-group-`<
 * You need to have docker CLI installed and you must be signed into your Docker Hub account. To create a Docker Hub account go to [https://hub.docker.com](https://hub.docker.com).
 * Open Eclipse.
 * Do a full build of the javaee-cafe application via Maven by going to Right click the application -> Run As -> Maven install.
-* Browse to where you have this repository code in your file system. You will now need to copy the war file to where we will build the Docker image next. You will find the war file under javaee/javaee-cafe/target. Copy the war file to docker/. Open the [docker/standalone.xml](docker/standalone.xml) file in a text editor next. Replace occurrences of `reza` with `<your suffix>`.
+* Browse to where you have this repository code in your file system. You will now need to copy the war file to where we will build the Docker image next. You will find the war file under javaee/javaee-cafe/target. Copy the war file to docker/. Open the [standalone.xml](standalone.xml) file in the docker/ directory with a text editor next. Replace occurrences of `reza` with `<your suffix>`.
 * Open a terminal. Navigate to where you have this repository code in your file system. Navigate to the docker/ directory.
 * Log in to Docker Hub using the docker login command:
 
