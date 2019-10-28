@@ -2,7 +2,7 @@
 
 This hands-on lab will show you the many ways of effectively deploying a Java EE application to Azure. 
 
-We will start by deploying a local Java EE application to basic IaaS on Azure. We will then deploy the same application to an entirely managed 
+We will start by deploying a local Java EE application to basic IaaS on Azure. We will then deploy the same application to a managed 
 Azure PaaS. Finally we will deploy the application to Azure using Docker and Kubernetes. We will discuss the trade-offs of each approach on the way, 
 offering guidelines for which approach might be best for your application on the cloud.
 
