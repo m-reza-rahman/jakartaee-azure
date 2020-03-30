@@ -1,3 +1,0 @@
-# File of asadmin commands to run after the server boots
-# don't add asadmin onto the command line for example
-# generate-jvm-report
