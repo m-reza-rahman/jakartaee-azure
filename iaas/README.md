@@ -81,12 +81,12 @@ The next step is to get the application up and running on a virtual machine. Fol
 * Start the server using the following command (it will take a few moments for the server to boot up):
 
 	```
-        payara5/bin/asadmin start-domain
+	payara5/bin/asadmin start-domain
 	```
 * By default Payara runs on port 8080. For the demo, Payara needs to run on port 80. Change the defaults by issuing the following command:
 	
 	```
-        payara5/bin/asadmin set configs.config.server-config.network-config.network-listeners.network-listener.http-listener-1.port=80
+	payara5/bin/asadmin set configs.config.server-config.network-config.network-listeners.network-listener.http-listener-1.port=80
 	```
 * Execute the following commands to install the JDBC driver:
 
