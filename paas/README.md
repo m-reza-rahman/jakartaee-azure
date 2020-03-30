@@ -22,7 +22,11 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 * Enter jakartaee-cafe-web-`<your suffix>` (the suffix could be your first name such as "reza") as application name and select jakartaee-cafe-group-`<your suffix>` as the resource group. Choose Linux as the OS and Java 8 -> Java SE as the runtime. Hit create.
 * In the portal, go to 'All resources'. Find and click on jakartaee-cafe-web-`<your suffix>`.
 * Go to the Deployment Center. Select FTP -> Dashboard -> User Credentials (note that FTP is just one deployment option in App Service). Enter payara-`<your suffix>` as the username (the suffix could be your first name such as "reza"). Enter Secret12345! as the password. Click 'Save Credentials'.
-* In the portal, go to 'All resources'. Find and click on jakartaee-cafe-web-`<your suffix>`. Go to Configuration -> General settings -> Startup Command. Specify 'java -jar /home/site/wwwroot/jakartaee-cafe-application.jar --port 80' as the startup command. Hit save.
+* In the portal, go to 'All resources'. Find and click on jakartaee-cafe-web-`<your suffix>`. Go to Configuration -> General settings -> Startup Command. Specify the following as the startup command and hit save:
+
+	```
+	java -jar /home/site/wwwroot/jakartaee-cafe-application.jar --port 80
+	```
 * Go back to the Overview panel and hit restart.
 
 ## Install the Azure CLI
