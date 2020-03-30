@@ -60,7 +60,7 @@ The next step is to get the application up and running on a virtual machine. Fol
 * Download the application by executing the following command:
 
 	```
-	wget https://github.com/<Your GitHub account>/javaee-azure/archive/master.zip
+	wget https://github.com/<Your GitHub account>/jakartaee-azure/archive/master.zip
 	```
 * Unzip the application by executing the following command:
 
@@ -91,12 +91,12 @@ The next step is to get the application up and running on a virtual machine. Fol
 * Execute the following commands to install the JDBC driver:
 
 	```
-	payara5/bin/asadmin add-library javaee-azure-master/iaas/server/postgresql-42.2.4.jar
+	payara5/bin/asadmin add-library jakartaee-azure-master/iaas/server/postgresql-42.2.4.jar
 	```
 * Execute the following command to deploy the application:
 
 	```
-	payara5/bin/asadmin deploy javaee-azure-master/iaas/jakartaee-cafe/target/jakartaee-cafe.war
+	payara5/bin/asadmin deploy jakartaee-azure-master/iaas/jakartaee-cafe/target/jakartaee-cafe.war
 	```
 * In the portal, go to 'All resources'. Find and click on jakartaee-cafe-server-`<your suffix>`. In the overview panel, find and copy the public IP address.
 * Once the application starts, you can test the REST service at the URL: http://[your public IP]/jakartaee-cafe/rest/coffees or via the JSF client at http://[your public IP]/jakartaee-cafe/index.xhtml.
