@@ -1,0 +1,5 @@
+cafe\model\CafeRepository.class
+cafe\model\entity\Coffee.class
+cafe\web\view\Cafe.class
+cafe\web\rest\CafeResource.class
+cafe\web\view\Cafe$1.class
