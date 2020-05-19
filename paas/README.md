@@ -59,9 +59,9 @@ The next step is to get the application up and running on managed Java SE with P
                 <directory>${project.basedir}/target</directory>
                 <targetPath>/</targetPath>
                 <includes>
-					   <include>payara-micro.jar</include>
-					   <include>postgresql.jar</include>
-					   <include>jakartaee-cafe.war</include>
+		    <include>payara-micro.jar</include>
+		    <include>postgresql.jar</include>
+		    <include>jakartaee-cafe.war</include>
                 </includes>
             </resource>
         </resources>
@@ -72,3 +72,4 @@ The next step is to get the application up and running on managed Java SE with P
 * It is now time to deploy and run the application on Azure. Right click the application -> Run As -> 'Maven build...'. Enter the name as 'Deploy to Azure App Service'. Enter the goals as 'azure-webapp:deploy'. Hit run.
 * Keep an eye on the console output. You will see when the application is deployed. The application will be available at https://jakartaee-cafe-web-your-suffix.azurewebsites.net. Note that it may take some time for the application to deploy after the console notification (it may be up to thirty minutes before all the infrastructure finishes getting allocated).
 * Once the application starts, you can test the REST service at the URL: https://jakartaee-cafe-web-your-suffix.azurewebsites.net/rest/coffees or via the JSF client at https://jakartaee-cafe-web-your-suffix.azurewebsites.net/index.xhtml.
+* If you attempt a redeploy, you may encounter a failure because the deployment artifacts are locked in a running application. If this occurs, go to 'All resources'. Find and click on jakartaee-cafe-web-`<your suffix>`. In the overview tab, hit stop and try redeployment again. Once the deployment succeeds, go back to the overview tab and start the application.
