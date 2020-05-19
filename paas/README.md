@@ -59,7 +59,9 @@ The next step is to get the application up and running on managed Java SE with P
                 <directory>${project.basedir}/target</directory>
                 <targetPath>/</targetPath>
                 <includes>
-                    <include>jakartaee-cafe-application.jar</include>
+					   <include>payara-micro.jar</include>
+					   <include>postgresql.jar</include>
+					   <include>jakartaee-cafe.war</include>
                 </includes>
             </resource>
         </resources>

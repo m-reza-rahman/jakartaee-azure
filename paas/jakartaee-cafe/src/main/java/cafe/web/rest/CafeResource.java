@@ -1,7 +1,6 @@
 package cafe.web.rest;
 
 import java.lang.invoke.MethodHandles;
-import java.net.URI;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -38,10 +37,10 @@ public class CafeResource {
 
 	@POST
 	@Consumes({ MediaType.APPLICATION_JSON })
-	public Response createCoffee(Coffee coffee) {
+	@Produces({ MediaType.APPLICATION_JSON })
+	public Coffee createCoffee(Coffee coffee) {
 		try {
-			coffee = this.cafeRepository.persistCoffee(coffee);
-			return Response.created(URI.create("/" + coffee.getId())).build();
+			return this.cafeRepository.persistCoffee(coffee);
 		} catch (PersistenceException e) {
 			logger.log(Level.SEVERE, "Error creating coffee {0}: {1}.", new Object[] { coffee, e });
 			throw new WebApplicationException(e, Response.Status.INTERNAL_SERVER_ERROR);
