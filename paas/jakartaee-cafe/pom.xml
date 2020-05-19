@@ -45,25 +45,34 @@
 				</configuration>
 			</plugin>
 			<plugin>
-				<groupId>fish.payara.maven.plugins</groupId>
-				<artifactId>payara-micro-maven-plugin</artifactId>
-				<version>1.0.7</version>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.1.2</version>
 				<executions>
 					<execution>
+						<id>copy</id>
+						<phase>package</phase>
 						<goals>
-							<goal>bundle</goal>
+							<goal>copy</goal>
 						</goals>
 					</execution>
 				</executions>
 				<configuration>
-					<uberJarClassifier>application</uberJarClassifier>
-					<customJars>
+					<artifactItems>
 						<artifactItem>
 							<groupId>org.postgresql</groupId>
 							<artifactId>postgresql</artifactId>
 							<version>42.2.11</version>
+							<destFileName>postgresql.jar</destFileName>
 						</artifactItem>
-					</customJars>
+						<artifactItem>
+							<groupId>fish.payara.extras</groupId>
+							<artifactId>payara-micro</artifactId>
+							<version>5.201</version>
+							<destFileName>payara-micro.jar</destFileName>
+						</artifactItem>
+					</artifactItems>
+					<outputDirectory>${project.build.directory}</outputDirectory>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -80,7 +89,9 @@
 							<directory>${project.basedir}/target</directory>
 							<targetPath>/</targetPath>
 							<includes>
-								<include>jakartaee-cafe-application.jar</include>
+								<include>payara-micro.jar</include>
+								<include>postgresql.jar</include>
+								<include>jakartaee-cafe.war</include>
 							</includes>
 						</resource>
 					</resources>

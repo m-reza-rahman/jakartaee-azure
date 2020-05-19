@@ -25,7 +25,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 * In the portal, go to 'All resources'. Find and click on jakartaee-cafe-web-`<your suffix>`. Go to Configuration -> General settings -> Startup Command. Specify the following as the startup command and hit save:
 
 	```
-	java -jar /home/site/wwwroot/jakartaee-cafe-application.jar --port 80
+	java -jar /home/site/wwwroot/payara-micro.jar --addlibs /home/site/wwwroot/postgresql.jar --deploy /home/site/wwwroot/jakartaee-cafe.war --contextroot / --port 80
 	```
 * Go back to the Overview panel and hit restart.
 
