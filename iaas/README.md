@@ -67,7 +67,7 @@ The next step is to get the application up and running on a virtual machine. Fol
 	```
 	unzip master.zip
 	```
-*  Change directories to where the application was extracted. Move to the jakartaee/jakartaee-cafe directory. Build the application by executing:
+*  Change directories to where the application was extracted. Move to the iaas/jakartaee-cafe directory. Build the application by executing:
 
 	```
 	mvn install
