@@ -27,16 +27,26 @@ The next step is to get the application up and running on a virtual machine. Fol
 	```
 	ssh payara@[public IP]
 	```
-* Run the following to update the package manager.
+* Add the Azul Zulu repository key for Ubuntu using the following command.
 
 	```
-	sudo apt-get update
+	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
 	```
-* Install Java by executing the following command.
+* Add the Azul Zulu apt repository using the following command.
 
 	```
-	sudo apt install openjdk-8-jdk
+	sudo apt-add-repository 'deb http://repos.azulsystems.com/ubuntu stable main'
 	```
+* Update the system package.
+
+	```
+	sudo apt update
+	```
+* Install Zulu OpenJDK Version 8 on Ubuntu.
+
+	```
+	sudo apt install zulu-8
+	```	
 * Install Maven by executing the following command.
 
 	```
