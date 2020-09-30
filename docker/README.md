@@ -34,7 +34,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    ```
 
 ## Deploy the Docker Image to Azure
-* Go to the [Azure portal](http://portal.azure.com). Hit Create a resource -> Containers -> Container Instances. Select the resource group to be jakartaee-cafe-group-`<your suffix>`. Hit OK. Specify the container name to be jakartaee-cafe-container-`<your suffix>` (the suffix could be your first name such as "reza"). Select the image source to be Docker Hub. Specify the container image to be [your Docker Hub ID]/jakartaee-cafe:v1.
+* Go to the [Azure portal](http://portal.azure.com). Hit Create a resource -> Containers -> Container Instances. Select the resource group to be jakartaee-cafe-group-`<your suffix>`. Hit OK. Specify the container name to be jakartaee-cafe-container-`<your suffix>` (the suffix could be your first name such as "reza"). Select the image source to be Docker Hub. Specify the container image to be [your Docker Hub ID]/jakartaee-cafe:v1. Click next.
 * Specify the DNS name to be jakartaee-cafe-`<your suffix>` (the suffix could be your first name such as "reza"). Specify the port to be 8080. Hit OK. Then hit OK on the summary.
 * In the portal, go to 'All resources'. Find and click on jakartaee-cafe-container-`<your suffix>`. In the overview panel, note the FQDN where the application is available.
 * The application will be accessible at `http://[FQDN]:8080/jakartaee-cafe`.
