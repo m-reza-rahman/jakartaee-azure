@@ -1,7 +1,9 @@
 # Deploying a Jakarta EE Application on Azure using PaaS
 This demo shows how you can deploy a Jakarta EE application to Azure using a managed runtime. The following is how you run the demo.
 
-*Note that Azure currently does not offer a managed Jakarta EE application server. This demo uses a managed Java SE service and Payara Micro. Payara Micro can easily run a Jakarta EE thin war as an executable jar, which is the technique we highlight here. Azure engineering is currently actively exporing partnering with the good folks at Payara to offer a managed Jakarta EE application server service on Azure via our marketplace. If a managed Jakarta EE application server offering on Azure is something that interests you, please email [Reza Rahman](mailto:reza.rahman@microsoft.com?subject=Managed%20Jakarta%20EE%20Application%20Server%20on%20Azure).*
+This demo uses a managed Java SE service and Payara Micro. Payara Micro can easily run a Jakarta EE thin war as an executable jar, which is the technique we highlight here.
+
+A good alternative to evaluate is the [public preview for JBoss EAP on App Service](https://azure.github.io/AppService/2020/09/22/jboss-public-preview.html). Public previews are a good opportunity to reach out and provide feedback as Jakarta EE customers!
 
 ## Setup
 * You will need an Azure subscription. If you don't have one, you can get one for free for one year [here](https://azure.microsoft.com/en-us/free).
