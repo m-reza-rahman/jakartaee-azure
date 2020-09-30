@@ -8,7 +8,7 @@ This demo shows how you can deploy a Jakarta EE application to Azure using Docke
 We will be using the fully managed PostgreSQL offering in Azure for this demo. If you have not set it up yet, please do so now. 
 
 * Go to the [Azure portal](http://portal.azure.com).
-* Select Create a resource -> Databases -> Azure Database for PostgreSQL. Select a single server.
+* Select 'Create a resource'. In the search box, enter and select 'Azure Database for PostgreSQL'. Hit create. Select a single server.
 * Specify the Server name to be jakartaee-cafe-db-`<your suffix>` (the suffix could be your first name such as "reza"). Create a new resource group named jakartaee-cafe-group-`<your suffix>` (the suffix could be your first name such as "reza"). Specify the login name to be postgres. Specify the password to be Secret123!. Hit 'Create'. It will take a moment for the database to deploy and be ready for use.
 * In the portal, go to 'All resources'. Find and click on jakartaee-cafe-db-`<your suffix>`. Open the connection security panel. Enable access to Azure services, disable SSL connection enforcement and then hit Save.
 
