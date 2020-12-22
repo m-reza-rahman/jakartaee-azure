@@ -32,10 +32,15 @@ The next step is to get the application up and running on a virtual machine. Fol
 	```
 	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
 	```
-* Add the Azul Zulu apt repository using the following command.
+* Download the installation package for Zulu from the Azul Systems site.
 
 	```
-	sudo apt-add-repository 'deb http://repos.azulsystems.com/ubuntu stable main'
+	wget https://cdn.azul.com/zulu/bin/zulu-repo_1.0.0-2_all.deb
+	```
+* Install the downloaded Zulu package by running the following command.
+
+	```
+	sudo apt-get install ./zulu-repo_1.0.0-2_all.deb
 	```
 * Update the system package.
 
@@ -45,7 +50,7 @@ The next step is to get the application up and running on a virtual machine. Fol
 * Install Zulu OpenJDK Version 8 on Ubuntu.
 
 	```
-	sudo apt install zulu-8
+	sudo apt-get install zulu8-jdk
 	```	
 * Install Maven by executing the following command.
 
