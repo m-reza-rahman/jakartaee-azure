@@ -11,4 +11,3 @@ The following are the setup instructions for the lab.
 * You will need to setup kubectl. [Here](https://kubernetes.io/docs/tasks/tools/install-kubectl/) are instructions on how to do that.
 * You will need an Azure subscription. If you don't have one, you can get one for free for one year [here](https://azure.microsoft.com/en-us/free).
 * You will need to install the Azure CLI. [Here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) are instructions on how to do that.
-* You will need to sign up for Azure DevOps for free [here](https://azure.microsoft.com/en-us/services/devops/).
