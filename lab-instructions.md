@@ -2,7 +2,7 @@
 The following are the setup instructions for the lab.
 
 * Please bring your laptop and ensure a reliable internet connection.
-* Install JDK 8 (we used [Azul Zulu Java 8 LTS](https://www.azul.com/downloads/zulu-community/)).
+* Install Java SE 11 (we used [Azul Zulu Java 11 LTS](https://www.azul.com/downloads/zulu-community/)).
 * Install the Eclipse IDE for Enterprise Java Developers from [here](https://www.eclipse.org/downloads/packages/).
 * Download the latest version of WildFly from [here](https://www.wildfly.org/downloads/). Make sure to download the full Jakarta EE version. Unzip the download somewhere in your file system.
 * Install Docker for your OS.
