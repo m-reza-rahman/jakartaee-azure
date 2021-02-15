@@ -87,8 +87,12 @@
                 <artifactId>azure-webapp-maven-plugin</artifactId>
                 <version>1.5.4</version>
                 <configuration>
-                    <appName>jakartaee-cafe-web-reza</appName>
-                    <resourceGroup>jakartaee-cafe-group-reza</resourceGroup>
+                    <appName>
+                        jakartaee-cafe-web-reza
+                    </appName>
+                    <resourceGroup>
+                        jakartaee-cafe-group-reza
+                    </resourceGroup>
                     <linuxRuntime>jre8</linuxRuntime>
                     <deploymentType>ftp</deploymentType>
                     <resources>
@@ -104,6 +108,12 @@
                     </resources>
                 </configuration>
             </plugin>
+            <!-- <plugin> <groupId>com.microsoft.azure</groupId> <artifactId>azure-webapp-maven-plugin</artifactId> 
+                <version>1.12.0</version> <configuration> <schemaVersion>v2</schemaVersion> <resourceGroup>jakartaee-cafe-group-reza</resourceGroup> 
+                <appName>jakartaee-cafe-web-reza</appName> <runtime> <os>linux</os> <javaVersion>java11</javaVersion> 
+                </runtime> <deployment> <resources> <resource> <directory>${project.basedir}/target</directory> <targetPath>/site/wwwroot/</targetPath> 
+                <includes> <include>payara-micro.jar</include> <include>postgresql.jar</include> <include>jakartaee-cafe.war</include> 
+                </includes> </resource> </resources> </deployment> </configuration> </plugin> -->
         </plugins>
     </build>
 </project>
