@@ -106,7 +106,7 @@ The next step is to get the application up and running on a virtual machine. Fol
 * Execute the following commands to install the JDBC driver:
 
 	```
-	payara5/bin/asadmin add-library jakartaee-azure-master/iaas/server/postgresql-42.2.4.jar
+	payara5/bin/asadmin add-library jakartaee-azure-master/iaas/server/postgresql-42.2.18.jar
 	```
 * Execute the following command to deploy the application:
 
