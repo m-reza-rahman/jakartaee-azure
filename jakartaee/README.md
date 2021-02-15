@@ -29,9 +29,8 @@ The next step is to get the application up and running. Follow the steps below t
 * Open a command line. Change directories to where you have Payara installed. Change directories into /bin. 
 Execute the following command.
 
-
 	```
-	asadmin[.bat] add-library [path to where repository is downloaded on your machine]/jakartaee/server/postgresql-42.2.4.jar
+	asadmin[.bat] add-library [path to where repository is downloaded on your machine]/jakartaee/server/postgresql-42.2.18.jar
 	```
 * Get the jakartaee-cafe application into the IDE. In order to do that, go to File -> Import -> Maven -> Existing Maven Projects. Then browse to where you have this repository code in your file system and select jakartaee/jakartaee-cafe. Accept the rest of the defaults and finish.
 * Once the application loads, you should do a full Maven build by going to Right click the application -> Run As -> Maven install.
