@@ -60,7 +60,7 @@ The next step is to get the application up and running on a virtual machine. Fol
 * Download Payara by executing the following command:
 
 	```
-	wget https://s3-eu-west-1.amazonaws.com/payara.fish/Payara+Downloads/5.201/payara-5.201.zip
+	wget https://repo1.maven.org/maven2/fish/payara/distributions/payara/5.2021.1/payara-5.2021.1.zip
 	```
 * Install unzip by executing the following command:
 
@@ -70,7 +70,7 @@ The next step is to get the application up and running on a virtual machine. Fol
 * Unzip Payara by executing the following command:
 
 	```
-	unzip payara-5.201.zip
+	unzip payara-5.2021.1.zip
 	```
 * Download the application by executing the following command:
 
