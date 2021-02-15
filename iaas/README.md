@@ -85,7 +85,7 @@ The next step is to get the application up and running on a virtual machine. Fol
 *  Change directories to where the application was extracted. Move to the iaas/jakartaee-cafe directory. Build the application by executing:
 
 	```
-	mvn install
+	mvn package
 	```
 * Change directories back to home.
 * Run the following command to get root shell access:
