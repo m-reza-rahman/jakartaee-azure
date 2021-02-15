@@ -50,7 +50,7 @@ The next step is to get the application up and running on a virtual machine. Fol
 * Install Zulu OpenJDK Version 8 on Ubuntu.
 
 	```
-	sudo apt-get install zulu8-jdk
+	sudo apt-get install zulu11-jdk
 	```	
 * Install Maven by executing the following command.
 
