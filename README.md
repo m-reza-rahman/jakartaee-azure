@@ -11,4 +11,4 @@ The key Azure pathways for Jakarta EE applications include:
 * Deploying a Jakarta EE application on Azure using Docker. The [docker](/docker) folder shows how this is done.
 * Deploying a Jakarta EE application on Azure using Docker and Kubernetes. The [kubernetes](/kubernetes) folder shows how this is done.
 
-The demos use Jakarta EE 8, Payara and PostgreSQL.
+The demos use Jakarta EE 8, WildFly/JBoss EAP and PostgreSQL.
