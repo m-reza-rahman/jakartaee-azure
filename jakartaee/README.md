@@ -6,7 +6,6 @@ We use Eclipse but you can use any Maven capable IDE such as NetBeans, IntelliJ 
 ## Setup
 
 - Install Java SE 8 or Java SE 11 (we used [Azul Zulu Java 11 LTS](https://www.azul.com/downloads/zulu-community/)).
-- Download the latest version of Payara from [here](https://www.payara.fish/products/downloads/). Make sure to download Payara Server Full. Unzip the download somewhere in your file system.
 - Install the Eclipse IDE for Enterprise Java Developers from [here](https://www.eclipse.org/downloads/packages/). 
 - Install Docker for your OS.
 - Download this repository somewhere in your file system (easiest way might be to download as a zip and extract).
