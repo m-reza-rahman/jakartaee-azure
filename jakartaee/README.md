@@ -26,19 +26,10 @@ The next step is to get the application up and running. Follow the steps below t
 * After the JBoss adapters are done installing, go to the 'Servers' panel again, right click. Select New -> Server -> JBoss Community -> WildFly 21. Choose the defaults on the next screen and hit 'Next'. Choose to download and install a runtime. Choose WildFly 21.0.2. Click Finish.
 * Find out where Eclipse has installed WildFly in your file system. In the Servers panel, open the WildFly instance. Click runtime environment. Note down the server home directory.
 * Browse to where WildFly is installed. Create the path modules/org/postgresql/main.
-* Browse to where you have this repository code in your file system. You will need to copy the module.xml and PostgreSQL driver to the newly created modules/org/postgresql/main path. Both of these files are located under /server directory. Also from the /server directory, copy the standalone.xml into standalone/configuration where WildFly is installed.
-
-
-* Go to the 'Servers' panel, right click on the newly registered Payara instance and select Start.
-* Open a command line. Change directories to where you have Payara installed. Change directories into /bin. 
-Execute the following command.
-
-	```
-	asadmin[.bat] add-library [path to where repository is downloaded on your machine]/jakartaee/server/postgresql-42.2.18.jar
-	```
+* Browse to where you have this repository code in your file system. You will need to copy the module.xml and PostgreSQL driver to the newly created modules/org/postgresql/main path. Both of these files are located under jakartaee/server directory. Also from the jakartaee/server directory, copy the standalone.xml into standalone/configuration where WildFly is installed.
 * Get the jakartaee-cafe application into the IDE. In order to do that, go to File -> Import -> Maven -> Existing Maven Projects. Then browse to where you have this repository code in your file system and select jakartaee/jakartaee-cafe. Accept the rest of the defaults and finish.
 * Once the application loads, you should do a full Maven build by going to Right click the application -> Run As -> Maven install.
-* It is now time to run the application. Go to Right click the application -> Run As -> Run on Server. Make sure to choose Payara as the server going forward. Just accept the defaults and wait for the application to finish running.
+* It is now time to run the application. Go to Right click the application -> Run As -> Run on Server. Make sure to choose WildFly as the server going forward. Just accept the defaults and wait for the application to finish running.
 * Once the application runs, Eclise will open it up in a browser. The application is available at [http://localhost:8080/jakartaee-cafe](http://localhost:8080/jakartaee-cafe).
 
 ## Content
