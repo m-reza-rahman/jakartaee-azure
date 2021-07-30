@@ -22,7 +22,7 @@ docker run -it --rm -e POSTGRES_HOST_AUTH_METHOD=trust --name jakartaee-cafe-db 
 ## Running the Application
 The next step is to get the application up and running. Follow the steps below to do so.
 * Start Eclipse.
-* Go to Help -> Eclipse Marketplace. Search for 'Payara' and install Payara Tools. You may need to restart the IDE.
+* Go to Servers -> New -> Server. Install Red Hat JBoss Middleware -> JBoss AS, WildFly & EAP Server Tools. You may need to restart the IDE.
 * After the Payara adapters are done installing, go to the 'Servers' panel again, right click. Select New -> Server -> Payara -> Payara. Choose the defaults on the next screen and hit 'Next'. Select the location where you have Payara installed and click through the rest of the defaults to get Payara setup in Eclipse.
 * Go to the 'Servers' panel, right click on the newly registered Payara instance and select Start.
 * Open a command line. Change directories to where you have Payara installed. Change directories into /bin. 
