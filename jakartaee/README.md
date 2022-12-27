@@ -4,9 +4,8 @@ This is the basic Jakarta EE 8 application used throughout the Azure demos. It i
 We use Eclipse but you can use any Maven capable IDE such as IntelliJ or Visual Studio Code. We use WildFly/JBoss EAP but you should be able to use any Jakarta EE 8 compatiple application server such as Open Liberty or Payara. We use PostgreSQL but you can use any relational database such as MySQL or SQL Server.
 
 ## Setup
-
-- Install Java SE 8 or Java SE 11 (we used [Azul Zulu Java 11 LTS](https://www.azul.com/downloads/zulu-community/)).
-- Install the Eclipse IDE for Enterprise Java Developers from [here](https://www.eclipse.org/downloads/packages/installer). 
+* Install Java SE 8, Java SE 11, or Java SE 17 (we used [Adoptium Temurin JDK 17](https://adoptium.net/marketplace/)).
+- Install the Eclipse IDE for Enterprise Java Developers from [here](https://www.eclipse.org/downloads/packages/). 
 - Install Docker for your OS.
 - Download this repository somewhere in your file system (easiest way might be to download as a zip and extract).
 
