@@ -2,7 +2,7 @@
 The following are the setup instructions for the lab.
 
 * Please bring your laptop and ensure a reliable internet connection.
-* Install Java SE 8 or Java SE 11 (we used [Azul Zulu Java 11 LTS](https://www.azul.com/downloads/zulu-community/)).
+* Install Java SE 8, Java SE 11 or Java SE 17 (we used [Adoptium Temurin JDK 17](https://adoptium.net/marketplace/)).
 * Install the Eclipse IDE for Enterprise Java Developers from [here](https://www.eclipse.org/downloads/packages/).
 * Download the latest version of Payara from [here](https://www.payara.fish/downloads/payara-platform-community-edition/). Make sure to download the full Jakarta EE version. Unzip the download somewhere in your file system.
 * Install Docker for your OS.
