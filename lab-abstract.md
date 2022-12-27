@@ -1,4 +1,4 @@
-# Java EE on Azure Workshop
+# Java/Jakarta EE on Azure Workshop
 
 This workshop will show you the many ways of effectively deploying a Java EE/Jakarta EE application to Azure. 
 
