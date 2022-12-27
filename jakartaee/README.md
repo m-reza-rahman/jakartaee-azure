@@ -1,5 +1,5 @@
 # Basic Jakarta EE CRUD Application
-This is the basic Jakarta EE 8 application used throughout the Azure demos. It is a simple CRUD application. It uses Maven and Jakarta EE 8 (Jakarta REST, Jakarta Enterprise Beans, Jakarta Context and Dependency Injection, Jakarta Persistence, Jakarta Faces, Jakarta Bean Validation).
+This is the basic Jakarta EE 8 application used throughout the Azure demos. It is a simple CRUD application. It uses Maven and Jakarta EE 8 (REST, Enterprise Beans, Context and Dependency Injection, Persistence, Faces, Bean Validation).
 
 We use Eclipse but you can use any Maven capable IDE such as NetBeans, IntelliJ or Visual Studio Code. We use WildFly/JBoss EAP but you should be able to use any Jakarta EE 8 compatiple application server such as Open Liberty or Payara. We use PostgreSQL but you can use any relational database such as MySQL or SQL Server.
 
