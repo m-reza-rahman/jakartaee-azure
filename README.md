@@ -1,4 +1,4 @@
-# Jakarta EE on Azure
+# Java/Jakarta EE on Azure
 This repository shows the key ways of deploying a Java/Jakarta EE application to Azure. The repository hosts the demos for [this](abstract.md) talk or [this](lab-abstract.md) lab ([here](lab-instructions.md) are the instructions for the lab). [Here](https://www.youtube.com/watch?v=FHCgC64Rdbk) is a video of the talk.
 
 The basic Jakarta EE application used throughout is in the [jakartaee](/jakartaee) folder. You should explore the setup in that folder first.
