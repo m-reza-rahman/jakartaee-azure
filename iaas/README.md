@@ -25,7 +25,7 @@ The next step is to get the application up and running on a virtual machine. Fol
 * In the portal, go to 'All resources'. Find and click on jakartaee-cafe-server-`<your suffix>`. In the overview panel, find the public IP. Connect to the virtual machine by executing the following command.
 
 	```
-	ssh payara@[public IP]
+	ssh wildfly@[public IP]
 	```
 * Add the Azul Zulu repository key for Ubuntu using the following command.
 
