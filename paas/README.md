@@ -14,15 +14,14 @@ We will be using the fully managed PostgreSQL offering in Azure for this demo. I
 
 Once you are done exploring the demo, you should delete the jakartaee-cafe-group-`<your suffix>` resource group. You can do this by going to the portal, going to resource groups, finding and clicking on jakartaee-cafe-group-`<your suffix>` and hitting delete. This is especially important if you are not using a free subscription! If you do keep these resources around (for example to begin your own prototype), you should in the least use your own passwords and make the corresponding changes in the demo code.
 
-## Setup Managed Java SE for Running Payara Micro
+## Setup Managed JBoss EAP
 * Go to the [Azure portal](http://portal.azure.com).
 * Select 'Create a resource'. In the search box, enter and select 'Web App'. Hit create.
-* Enter jakartaee-cafe-web-`<your suffix>` (the suffix could be your first name such as "reza") as application name and select jakartaee-cafe-group-`<your suffix>` as the resource group. Choose Linux as the OS and Java 11 -> Java SE as the runtime. Hit create.
-* In the portal, go to 'All resources'. Find and click on jakartaee-cafe-web-`<your suffix>`. Go to Configuration -> General settings -> Startup Command. Specify the following as the startup command and hit save:
-
-	```
-	java -jar /home/site/wwwroot/payara-micro.jar --addlibs /home/site/wwwroot/postgresql.jar --deploy /home/site/wwwroot/jakartaee-cafe.war --contextroot / --port 80
-	```
+* Enter jakartaee-cafe-web-`<your suffix>` (the suffix could be your first name such as "reza") as application name and select jakartaee-cafe-group-`<your suffix>` as the resource group. Choose Linux as the OS and JBoss EAP as the runtime. Hit create.
+* Go to the Deployment Center. Select FTP -> Dashboard -> User Credentials (note that FTP is just one deployment option in App Service). Enter jboss-`<your suffix>` as the username (the suffix could be your first name such as "reza"). Enter Secret12345! as the password. Click 'Save Credentials'.
+* Go to the Overview panel. Note down the FTP access information. Connect with your favorite FTP client.
+* Go to where this application is on your local machine. Got to the paas directory. Open the [jboss_cli_commands.cli](jboss_cli_commands.cli) in a text editor. Replace occurrences of `reza` with `<your suffix>`. Make sure to switch your FTP client to *binary mode*, if that is not already the default.  Via FTP, upload the JDBC driver to the /site/deployments/tools/ directory. Then upload the jboss_cli_commands.cli, postgresql-module.xml and startup.sh files to the /site/deployments/tools/ directory.
+* In the portal, go to 'All resources'. Find and click on jakartaee-cafe-web-`<your suffix>`. Go to Configuration -> General settings -> Startup Command. Specify /home/site/deployments/tools/startup.sh as the startup command. Hit save.
 * Go back to the Overview panel and hit restart.
 
 ## Install the Azure CLI
