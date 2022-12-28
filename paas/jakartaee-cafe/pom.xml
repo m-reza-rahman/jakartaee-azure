@@ -9,8 +9,8 @@
     <packaging>war</packaging>
     <name>${project.artifactId}</name>
     <description>This is the basic Jakarta EE application used throughout the Azure demos.
-        It is a simple CRUD application. It uses Maven and Jakarta EE 8 (Jakarta REST, Jakarta Enterprise Beans, 
-        Jakarta Context and Dependency Injection, Jakarta Persistence, Jakarta Faces, Jakarta Bean Validation). 
+        It is a simple CRUD application. It uses Maven and Jakarta EE 8 (REST, Enterprise Beans, 
+        Context and Dependency Injection, Persistence, Faces, Bean Validation). 
     </description>
     <properties>
         <jakartaee.api.version>8.0.0</jakartaee.api.version>
@@ -49,37 +49,6 @@
                 <version>3.2.2</version>
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>3.1.2</version>
-                <executions>
-                    <execution>
-                        <id>copy</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>copy</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <artifactItems>
-                        <artifactItem>
-                            <groupId>org.postgresql</groupId>
-                            <artifactId>postgresql</artifactId>
-                            <version>42.2.18</version>
-                            <destFileName>postgresql.jar</destFileName>
-                        </artifactItem>
-                        <artifactItem>
-                            <groupId>fish.payara.extras</groupId>
-                            <artifactId>payara-micro</artifactId>
-                            <version>5.2021.1</version>
-                            <destFileName>payara-micro.jar</destFileName>
-                        </artifactItem>
-                    </artifactItems>
-                    <outputDirectory>${project.build.directory}</outputDirectory>
                 </configuration>
             </plugin>
 			<plugin>
