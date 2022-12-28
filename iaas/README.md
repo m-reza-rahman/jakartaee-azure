@@ -76,7 +76,7 @@ The next step is to get the application up and running on a virtual machine. Fol
 * Execute the following commands to install the JDBC driver, the standalone configuration and the application:
 	```
 	mkdir -p wildfly-21.0.2.Final/modules/org/postgresql/main
-	cp jakartaee-azure-master/jakartaee/server/postgresql-42.2.4.jar wildfly-21.0.2.Final/modules/org/postgresql/main/
+	cp jakartaee-azure-master/jakartaee/server/postgresql-42.2.19.jar wildfly-21.0.2.Final/modules/org/postgresql/main/
 	cp jakartaee-azure-master/jakartaee/server/module.xml wildfly-21.0.2.Final/modules/org/postgresql/main/
 	cp jakartaee-azure-master/iaas/standalone.xml wildfly-21.0.2.Final/standalone/configuration/
 	cp jakartaee-azure-master/jakartaee/jakartaee-cafe/target/jakartaee-cafe.war wildfly-21.0.2.Final/standalone/deployments/
