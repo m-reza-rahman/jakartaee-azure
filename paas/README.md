@@ -31,13 +31,13 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 	```
 	az login
 	```
-## Start the Application on Managed Java SE with Payara Micro
-The next step is to get the application up and running on managed Java SE with Payara Micro. Follow the steps below to do so.
+## Start the Application on Managed WildFly
+The next step is to get the application up and running on managed JBoss EAP. Follow the steps below to do so.
 
 * Start Eclipse.
 * Get the jakartaee-cafe application in the PaaS directory into the IDE. In order to do that, go to File -> Import -> Maven -> Existing Maven Projects. Then browse to where you have this repository code in your file system and select paas/jakartaee-cafe. Accept the rest of the defaults and finish.
-* Once the application loads, open the [pom.xml](jakartaee-cafe/pom.xml) and [web.xml](jakartaee-cafe/src/main/webapp/WEB-INF/web.xml) files and replace occurrences of `reza` with `<your suffix>`. You should do a full Maven build by going to Right click the application -> Run As -> Maven install.
-* You should note the pom.xml. In particular, we have included the configuration for the Azure Maven plugin we are going to use to deploy the application to managed Java SE with Payara Micro:
+* Once the application loads, open the [pom.xml](jakartaee-cafe/pom.xml) file and replace occurrences of `reza` with `<your suffix>`. You should do a full Maven build by going to Right click the application -> Run As -> Maven install.
+* You should note the pom.xml. In particular, we have included the configuration for the Azure Maven plugin we are going to use to deploy the application to managed JBoss EAP:
 
 ```xml
 <plugin>
@@ -45,26 +45,13 @@ The next step is to get the application up and running on managed Java SE with P
     <artifactId>azure-webapp-maven-plugin</artifactId>
     <version>1.5.4</version>
     <configuration>
-        <appName>jakartaee-cafe-web-<your suffix></appName>
-        <resourceGroup>jakartaee-cafe-group-<your suffix></resourceGroup>
-        <linuxRuntime>jre8</linuxRuntime>
-        <deploymentType>ftp</deploymentType>
-        <resources>
-            <resource>
-                <directory>${project.basedir}/target</directory>
-                <targetPath>/</targetPath>
-                <includes>
-		    <include>payara-micro.jar</include>
-		    <include>postgresql.jar</include>
-		    <include>jakartaee-cafe.war</include>
-                </includes>
-            </resource>
-        </resources>
-    </configuration>	
+        <appName>javaee-cafe-web-<your suffix></appName>
+        <resourceGroup>javaee-cafe-group-<your suffix></resourceGroup>
+        <linuxRuntime>wildfly 14-jre8</linuxRuntime>
+    </configuration>
 </plugin>
 ```
 
-* It is now time to deploy and run the application on Azure. Right click the application -> Run As -> 'Maven build...'. Enter the name as 'Deploy to Azure App Service'. Enter the goals as 'azure-webapp:deploy'. Hit run.
-* Keep an eye on the console output. You will see when the application is deployed. The application will be available at https://jakartaee-cafe-web-your-suffix.azurewebsites.net. Note that it may take some time for the application to deploy after the console notification (it may be up to thirty minutes before all the infrastructure finishes getting allocated).
+* It is now time to deploy and run the application on Azure. Right click the application -> Run As -> 'Maven build...'. Enter the name as 'Deploy to Azure'. Enter the goals as 'azure-webapp:deploy'. Hit run.
+* Keep an eye on the console output. You will see when the application is deployed. The application will be available at https://jakartaee-cafe-web-your-suffix.azurewebsites.net. Note that it may take a few minutes for the application to deploy after the console notification.
 * Once the application starts, you can test the REST service at the URL: https://jakartaee-cafe-web-your-suffix.azurewebsites.net/rest/coffees or via the JSF client at https://jakartaee-cafe-web-your-suffix.azurewebsites.net/index.xhtml.
-* If you attempt a redeploy, you may encounter a failure because the deployment artifacts are locked in a running application. If this occurs, go to 'All resources'. Find and click on jakartaee-cafe-web-`<your suffix>`. In the overview tab, hit stop and try redeployment again. Once the deployment succeeds, go back to the overview tab and start the application.
