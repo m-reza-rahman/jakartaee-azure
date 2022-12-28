@@ -21,56 +21,41 @@ The next step is to get the application up and running on a virtual machine. Fol
 * Clone this repository into your own GitHub account. Make sure to update the [standalone.xml](standalone.xml) file to replace occurrences of `reza` with `<your suffix>`.
 * Go to the [Azure portal](http://portal.azure.com).
 * Select 'Create a resource'. In the search box, enter and search for 'Ubuntu Server 20.04 LTS'. In the results, select 'Ubuntu Server 20.04 LTS' (this is an official offering from Canonical). Hit create.
-* Enter the resource group as jakartaee-cafe-group-`<your suffix>`. Enter the virtual machine name as jakartaee-cafe-server-`<your suffix>` (the suffix could be your first name such as "reza"). Choose password based authentication instead of SSH. Enter wildfly as the username. Specify the password to be Secret12345!. For 'Select inbound ports' choose the HTTP (80), HTTPS (443) and SSH (22) ports to open. Hit next until you reach the networking settings. Ensure ports 22, 80 and 443 are still open. Hit 'Create'.
+* Enter the resource group as jakartaee-cafe-group-`<your suffix>`. Enter the virtual machine name as jakartaee-cafe-server-`<your suffix>` (the suffix could be your first name such as "reza"). Choose password based authentication instead of SSH. Enter wildfly as the username. Specify the password to be Secret12345!. For 'Select inbound ports' choose the HTTP (80), HTTPS (443) and SSH (22) ports to open. Hit next until you reach the networking settings. Ensure ports 22, 80 and 443 are still open. Create the resource.
 * In the portal, go to 'All resources'. Find and click on jakartaee-cafe-server-`<your suffix>`. In the overview panel, find the public IP. Connect to the virtual machine by executing the following command.
 
 	```
-	ssh payara@[public IP]
+	ssh wildfly@[public IP]
 	```
-* Add the Azul Zulu repository key for Ubuntu using the following command.
+* Run the following to update the package manager.
 
 	```
-	sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
+	sudo apt-get update
 	```
-* Download the installation package for Zulu from the Azul Systems site.
+* Install Java by executing the following command.
 
 	```
-	wget https://cdn.azul.com/zulu/bin/zulu-repo_1.0.0-2_all.deb
+	sudo apt install openjdk-8-jdk
 	```
-* Install the downloaded Zulu package by running the following command.
-
-	```
-	sudo apt-get install ./zulu-repo_1.0.0-2_all.deb
-	```
-* Update the system package.
-
-	```
-	sudo apt update
-	```
-* Install Zulu OpenJDK Version 8 on Ubuntu.
-
-	```
-	sudo apt-get install zulu11-jdk
-	```	
 * Install Maven by executing the following command.
 
 	```
 	sudo apt install maven
 	```
-* Download Payara by executing the following command:
+* Download WildFy by executing the following command:
 
 	```
-	wget https://repo1.maven.org/maven2/fish/payara/distributions/payara/5.2021.1/payara-5.2021.1.zip
+	wget https://download.jboss.org/wildfly/21.0.2.Final/wildfly-21.0.2.Final.zip
 	```
 * Install unzip by executing the following command:
 
 	```
 	sudo apt install unzip
 	```	
-* Unzip Payara by executing the following command:
+* Unzip WildFy by executing the following command:
 
 	```
-	unzip payara-5.2021.1.zip
+	unzip wildfly-21.0.2.Final.zip
 	```
 * Download the application by executing the following command:
 
@@ -82,36 +67,28 @@ The next step is to get the application up and running on a virtual machine. Fol
 	```
 	unzip master.zip
 	```
-*  Change directories to where the application was extracted. Move to the iaas/jakartaee-cafe directory. Build the application by executing:
+*  Change directories to where the application was extracted. Move to the jakartaee/jakartaee-cafe directory. Build the application by executing:
 
 	```
-	mvn package
+	mvn install
 	```
 * Change directories back to home.
-* Run the following command to get root shell access:
+* Execute the following commands to install the JDBC driver, the standalone configuration and the application:
+	```
+	mkdir -p wildfly-21.0.2.Final/modules/org/postgresql/main
+	cp jakartaee-azure-master/jakartaee/server/postgresql-42.2.19.jar wildfly-21.0.2.Final/modules/org/postgresql/main/
+	cp jakartaee-azure-master/jakartaee/server/module.xml wildfly-21.0.2.Final/modules/org/postgresql/main/
+	cp jakartaee-azure-master/iaas/standalone.xml wildfly-21.0.2.Final/standalone/configuration/
+	cp jakartaee-azure-master/jakartaee/jakartaee-cafe/target/jakartaee-cafe.war wildfly-21.0.2.Final/standalone/deployments/
+	```
+* Change directories to wildfly-21.0.2.Final/bin. Run the following command to get root shell access:
 
 	```
 	sudo su
 	```
-* Start the server using the following command (it will take a few moments for the server to boot up):
-
+* Execute the following command to start WildFly:
 	```
-	payara5/bin/asadmin start-domain
-	```
-* By default Payara runs on port 8080. For the demo, Payara needs to run on port 80. Change the defaults by issuing the following command:
-	
-	```
-	payara5/bin/asadmin set configs.config.server-config.network-config.network-listeners.network-listener.http-listener-1.port=80
-	```
-* Execute the following commands to install the JDBC driver:
-
-	```
-	payara5/bin/asadmin add-library jakartaee-azure-master/iaas/server/postgresql-42.2.18.jar
-	```
-* Execute the following command to deploy the application:
-
-	```
-	payara5/bin/asadmin deploy jakartaee-azure-master/iaas/jakartaee-cafe/target/jakartaee-cafe.war
+	./standalone.sh
 	```
 * In the portal, go to 'All resources'. Find and click on jakartaee-cafe-server-`<your suffix>`. In the overview panel, find and copy the public IP address.
 * Once the application starts, you can test the REST service at the URL: http://[your public IP]/jakartaee-cafe/rest/coffees or via the JSF client at http://[your public IP]/jakartaee-cafe/index.xhtml.
