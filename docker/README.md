@@ -20,6 +20,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 * Open Eclipse.
 * Get the basic jakartaee-cafe application into the IDE if you have not done so already. In order to do that, go to File -> Import -> Maven -> Existing Maven Projects. Then browse to where you have this repository code in your file system and select jakartaee/jakartaee-cafe. Accept the rest of the defaults and finish.
 * Do a full build of the jakartaee-cafe application via Maven by going to Right click the application -> Run As -> Maven install.
+* Browse to where you have this repository code in your file system. You will now need to copy the war file to where we will build the Docker image next. You will find the war file under jakartaee/jakartaee-cafe/target. Copy the war file to docker/. Open the [standalone.xml](standalone.xml) file in the docker/ directory with a text editor next. Replace occurrences of `reza` with `<your suffix>`.
 * Open a terminal. Navigate to where you have this repository code in your file system. Navigate to the docker/ directory.
 * Log in to Docker Hub using the docker login command:
 
