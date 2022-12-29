@@ -27,10 +27,20 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    ```
    docker login
    ```
-* Build a Docker image and push the image to Docker Hub:
+* Build the Docker image:
 
    ```
    docker build -t <your Docker Hub ID>/jakartaee-cafe:v1 .
+   ```
+   
+* Test the Docker image:
+
+   ```
+   docker run -it --rm -p 8080:8080 <your Docker Hub ID>/jakartaee-cafe:v1
+   ```
+* Push the Docker image to Docker Hub:
+
+   ```
    docker push <your Docker Hub ID>/jakartaee-cafe:v1
    ```
 
