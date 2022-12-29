@@ -44,9 +44,19 @@ The next step is to get the application up and running on managed JBoss EAP. Fol
     <version>2.8.0</version>
     <configuration>
         <appName>jakartaee-cafe-web-reza</appName>
-	<resourceGroup>jakartaee-cafe-group-reza</resourceGroup>
+        <resourceGroup>jakartaee-cafe-group-reza</resourceGroup>
 	<javaVersion>Java 8</javaVersion>
 	<webContainer>JBossEAP 7</webContainer>
+	<deployment>
+            <resources>
+                <resource>
+                    <directory>${project.basedir}/target</directory>
+                    <includes>
+                        <include>jakartaee-cafe.war</include>
+                    </includes>
+                </resource>
+            </resources>
+        </deployment>
     </configuration>
 </plugin>
 ```
