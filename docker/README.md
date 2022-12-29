@@ -18,7 +18,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 ## Build and Publish the Docker Image
 * You need to have docker CLI installed and you must be signed into your Docker Hub account. To create a Docker Hub account go to [https://hub.docker.com](https://hub.docker.com).
 * Open Eclipse.
-* Get the jakartaee-cafe application into the IDE. In order to do that, go to File -> Import -> Maven -> Existing Maven Projects. Then browse to where you have this repository code in your file system and select docker/jakartaee-cafe. Accept the rest of the defaults and finish. Open the [web.xml](jakartaee-cafe/src/main/webapp/WEB-INF/web.xml) file in Eclipse. Replace occurrences of `reza` with `<your suffix>`.
+* Get the basic jakartaee-cafe application into the IDE if you have not done so already. In order to do that, go to File -> Import -> Maven -> Existing Maven Projects. Then browse to where you have this repository code in your file system and select jakartaee/jakartaee-cafe. Accept the rest of the defaults and finish.
 * Do a full build of the jakartaee-cafe application via Maven by going to Right click the application -> Run As -> Maven install.
 * Open a terminal. Navigate to where you have this repository code in your file system. Navigate to the docker/ directory.
 * Log in to Docker Hub using the docker login command:
