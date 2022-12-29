@@ -17,7 +17,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 ## Setup Managed JBoss EAP
 * Go to the [Azure portal](http://portal.azure.com).
 * Select 'Create a resource'. In the search box, enter and select 'Web App'. Hit create.
-* Enter jakartaee-cafe-web-`<your suffix>` (the suffix could be your first name such as "reza") as application name and select jakartaee-cafe-group-`<your suffix>` as the resource group. Choose Linux as the OS and JBoss EAP as the runtime. Hit create.
+* Enter jakartaee-cafe-web-`<your suffix>` (the suffix could be your first name such as "reza") as application name and select jakartaee-cafe-group-`<your suffix>` as the resource group. Choose Java 8 as your runtime stack and JBoss EAP 7 as the Java web server stack. Hit create.
 * Go to the Deployment Center. Select FTP -> Dashboard -> User Credentials (note that FTP is just one deployment option in App Service). Enter jboss-`<your suffix>` as the username (the suffix could be your first name such as "reza"). Enter Secret12345! as the password. Click 'Save Credentials'.
 * Go to the Overview panel. Note down the FTP access information. Connect with your favorite FTP client.
 * Go to where this application is on your local machine. Got to the paas directory. Open the [jboss_cli_commands.cli](jboss_cli_commands.cli) in a text editor. Replace occurrences of `reza` with `<your suffix>`. Make sure to switch your FTP client to *binary mode*, if that is not already the default.  Via FTP, upload the JDBC driver to the /site/deployments/tools/ directory. Then upload the jboss_cli_commands.cli, postgresql-module.xml and startup.sh files to the /site/deployments/tools/ directory.
