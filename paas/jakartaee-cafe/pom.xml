@@ -58,6 +58,7 @@
 				<configuration>
 					<appName>jakartaee-cafe-web-reza</appName>
 					<resourceGroup>jakartaee-cafe-group-reza</resourceGroup>
+					<region>eastus</region>
 					<javaVersion>Java 8</javaVersion>
 					<webContainer>JBossEAP 7</webContainer>
 				</configuration>
