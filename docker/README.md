@@ -1,5 +1,5 @@
 # Deploying a Jakarta EE application on Azure using Docker
-This demo shows how you can deploy a Jakarta EE application to Azure using Docker and Container Instances. The following is how you run the demo.
+This demo shows how you can deploy a Jakarta EE application to Azure using Docker and Azure Container Apps. The following is how you run the demo.
 
 ## Setup
 * You will need a GitHub account.
