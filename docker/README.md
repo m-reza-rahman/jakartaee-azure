@@ -36,7 +36,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 * Test the Docker image locally:
 
    ```
-   docker run -it --rm -p 8060:8080 <your Docker Hub ID>/jakartaee-cafe:v1
+   docker run -it --rm -p 8080:8080 <your Docker Hub ID>/jakartaee-cafe:v1
    ```
    
    The application will be available at http://localhost:8080/jakartaee-cafe/. Press Control-C to stop.
