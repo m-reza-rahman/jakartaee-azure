@@ -36,10 +36,10 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 * Test the Docker image locally:
 
    ```
-   docker run -it --rm -p 80:80 <your Docker Hub ID>/jakartaee-cafe:v1
+   docker run -it --rm -p 8060:8080 <your Docker Hub ID>/jakartaee-cafe:v1
    ```
    
-   The application will be available at http://localhost/jakartaee-cafe/. Press Control-C to stop.
+   The application will be available at http://localhost:8080/jakartaee-cafe/. Press Control-C to stop.
    
 * Push the Docker image to Docker Hub:
 
@@ -51,6 +51,6 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 * Go to the [Azure portal](http://portal.azure.com).
 * Select 'Create a resource'. In the search box, enter and select 'Container Instances'. Hit create.
 * Select the resource group to be jakartaee-cafe-group-`<your suffix>`. Specify the container name to be jakartaee-cafe-container-`<your suffix>` (the suffix could be your first name such as "reza"). Select the image source to be 'Other registry'. Specify the image to be [your Docker Hub ID]/jakartaee-cafe:v1. Click next.
-* Specify the DNS name label to be jakartaee-cafe-`<your suffix>` (the suffix could be your first name such as "reza"). Make sure the port is set to 80. Create the resource.
+* Specify the DNS name label to be jakartaee-cafe-`<your suffix>` (the suffix could be your first name such as "reza"). Enable access to ports 8080 and 8443. Create the resource.
 * In the portal, go to 'All resources'. Find and click on jakartaee-cafe-container-`<your suffix>`. In the overview panel, note the FQDN where the application is available.
-* The application will be accessible at `http://[FQDN]/jakartaee-cafe`.
+* The application will be accessible at `http://[FQDN]:8080/jakartaee-cafe`. Note that it may take a few minutes for the application to be available.
