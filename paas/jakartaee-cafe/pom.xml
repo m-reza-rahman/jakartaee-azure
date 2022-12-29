@@ -58,7 +58,8 @@
 				<configuration>
 					<appName>javaee-cafe-web-reza</appName>
 					<resourceGroup>javaee-cafe-group-reza</resourceGroup>
-					<linuxRuntime>wildfly 14-jre8</linuxRuntime>
+					<javaVersion>Java 8</javaVersion>
+					<webContainer>JBossEAP 7</webContainer>
 				</configuration>
 			</plugin>
         </plugins>
