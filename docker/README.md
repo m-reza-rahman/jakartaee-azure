@@ -16,7 +16,7 @@ We will be using the fully managed PostgreSQL offering in Azure for this demo. I
 Once you are done exploring the demo, you should delete the jakartaee-cafe-group-`<your suffix>` resource group. You can do this by going to the portal, going to resource groups, finding and clicking on jakartaee-cafe-group-`<your suffix>` and hitting delete. This is especially important if you are not using a free subscription! If you do keep these resources around (for example to begin your own prototype), you should in the least use your own passwords and make the corresponding changes in the demo code.
 
 ## Build and Publish the Docker Image
-* You need to have docker CLI installed and you must be signed into your Docker Hub account. To create a Docker Hub account go to [https://hub.docker.com](https://hub.docker.com).
+* You need to have Docker CLI installed and you must be signed into your Docker Hub account. To create a Docker Hub account go to [https://hub.docker.com](https://hub.docker.com).
 * Open Eclipse.
 * Get the basic jakartaee-cafe application into the IDE if you have not done so already. In order to do that, go to File -> Import -> Maven -> Existing Maven Projects. Then browse to where you have this repository code in your file system and select jakartaee/jakartaee-cafe. Accept the rest of the defaults and finish.
 * Do a full build of the jakartaee-cafe application via Maven by going to Right click the application -> Run As -> Maven install.
