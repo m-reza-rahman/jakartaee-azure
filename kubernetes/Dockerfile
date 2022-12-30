@@ -1,4 +1,7 @@
-FROM payara/server-full
-COPY jakartaee-cafe/target/jakartaee-cafe.war $DEPLOY_DIR
-COPY server/postgresql-42.2.18.jar /tmp
-RUN echo 'add-library /tmp/postgresql-42.2.18.jar' > $POSTBOOT_COMMANDS
+FROM jboss/wildfly:21.0.2.Final
+
+RUN mkdir -p /opt/jboss/wildfly/modules/org/postgresql/main
+COPY postgresql-42.2.19.jar /opt/jboss/wildfly/modules/org/postgresql/main/
+COPY module.xml /opt/jboss/wildfly/modules/org/postgresql/main/
+COPY standalone.xml /opt/jboss/wildfly/standalone/configuration/
+ADD jakartaee-cafe.war /opt/jboss/wildfly/standalone/deployments/
