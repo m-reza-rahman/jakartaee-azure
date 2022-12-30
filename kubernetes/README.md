@@ -18,6 +18,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 * You will first need to create the Kubernetes cluster. Go to the [Azure portal](http://portal.azure.com). Hit Create a resource -> Containers -> Kubernetes Service. Select the resource group to be jakartaee-cafe-group-`<your suffix>`. Specify the cluster name as jakartaee-cafe-cluster-`<your suffix>` (the suffix could be your first name such as "reza"). Hit Review + create. Hit Create.
 
 ## Setup Kubernetes Tooling
+* You need to have Docker CLI installed and you must be signed into your Docker Hub account. To create a Docker Hub account go to [https://hub.docker.com](https://hub.docker.com).
 * You will now need to setup kubectl. [Here](https://kubernetes.io/docs/tasks/tools/install-kubectl/) are instructions on how to do that.
 * Next you will install the Azure CLI. [Here](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) are instructions on how to do that.
 * You will then connect kubectl to the Kubernetes cluster you created. To do so, run the following command:
@@ -26,24 +27,38 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
    az aks get-credentials --resource-group jakartaee-cafe-group-<your suffix> --name jakartaee-cafe-cluster-<your suffix>
    ```
   If you get an error about an already existing resource, you may need to delete the ~/.kube directory.
-* You need to have docker cli installed and you must be signed into your Docker Hub account. To create a Docker Hub account go to [https://hub.docker.com](https://hub.docker.com).
 
-## Deploy the Java EE Application on Kubernetes
+## Deploy the Application on Kubernetes
 * Open Eclipse.
-* Get the jakartaee-cafe application into the IDE. In order to do that, go to File -> Import -> Maven -> Existing Maven Projects. Then browse to where you have this repository code in your file system and select kubernetes/jakartaee-cafe. Accept the rest of the defaults and finish. Open the [web.xml](jakartaee-cafe/src/main/webapp/WEB-INF/web.xml) file in Eclipse. Replace occurrences of `reza` with `<your suffix>`.
+* Get the basic jakartaee-cafe application into the IDE if you have not done so already. In order to do that, go to File -> Import -> Maven -> Existing Maven Projects. Then browse to where you have this repository code in your file system and select jakartaee/jakartaee-cafe. Accept the rest of the defaults and finish.
 * Do a full build of the jakartaee-cafe application via Maven by going to Right click the application -> Run As -> Maven install.
+* Browse to where you have this repository code in your file system. You will now need to copy the war file to where we will build the Docker image next. You will find the war file under jakartaee/jakartaee-cafe/target. Copy the war file to kubernetes/. Open the [standalone.xml](standalone.xml) file in the kubernetes/ directory with a text editor next. Replace occurrences of `reza` with `<your suffix>`.
 * Open a terminal. Navigate to where you have this repository code in your file system. Navigate to the kubernetes/ directory.
 * Log in to Docker Hub using the docker login command:
 
    ```
    docker login
    ```
-* Build a Docker image and push the image to Docker Hub:
+* Build the Docker image:
 
    ```
    docker build -t <your Docker Hub ID>/jakartaee-cafe:v1 .
+   ```
+   
+* Test the Docker image locally:
+
+   ```
+   docker run -it --rm -p 8080:8080 <your Docker Hub ID>/jakartaee-cafe:v1
+   ```
+   
+   The application will be available at http://localhost:8080/jakartaee-cafe/. Press Control-C to stop.
+   
+* Push the Docker image to Docker Hub:
+
+   ```
    docker push <your Docker Hub ID>/jakartaee-cafe:v1
    ```
+
 * Replace the `<your Docker Hub ID>` value with your account name in `jakartaee-cafe.yml` file.
 * You can now deploy the application:
 
