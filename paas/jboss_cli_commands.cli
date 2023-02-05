@@ -1,6 +1,6 @@
 #!/bin/bash
 # These commands are executed by the JBoss CLI.
-module add --name=org.postgresql --resources=/home/site/deployments/tools/postgresql-42.2.19.jar --module-xml=/home/site/deployments/tools/postgresql-module.xml
+module add --name=org.postgresql --resources=/home/site/deployments/tools/postgresql-42.5.3.jar --module-xml=/home/site/deployments/tools/postgresql-module.xml
 /subsystem=datasources/jdbc-driver=postgresql:add(driver-name="postgresql",driver-module-name="org.postgresql",driver-class-name="org.postgresql.Driver",driver-xa-datasource-class-name="org.postgresql.xa.PGXADataSource")
 data-source add --name="PostgresqlDS" --driver-name="postgresql" --jndi-name="java:/jdbc/JakartaEECafeDB" --connection-url="jdbc:postgresql://jakartaee-cafe-db-reza.postgres.database.azure.com:5432/postgres" --user-name="postgres@jakartaee-cafe-db-reza" --password="Secret123!" --enabled=true --use-java-context=true
 reload --use-current-server-config=true
