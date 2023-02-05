@@ -35,7 +35,7 @@ The next step is to get the application up and running on a virtual machine. Fol
 * Install Java by executing the following command.
 
 	```
-	sudo apt install openjdk-8-jdk
+	sudo apt-get install openjdk-17-jdk
 	```
 * Install Maven by executing the following command.
 
@@ -45,7 +45,7 @@ The next step is to get the application up and running on a virtual machine. Fol
 * Download WildFy by executing the following command:
 
 	```
-	wget https://download.jboss.org/wildfly/21.0.2.Final/wildfly-21.0.2.Final.zip
+	wget https://github.com/wildfly/wildfly/releases/download/26.1.3.Final/wildfly-26.1.3.Final.zip
 	```
 * Install unzip by executing the following command:
 
@@ -55,7 +55,7 @@ The next step is to get the application up and running on a virtual machine. Fol
 * Unzip WildFy by executing the following command:
 
 	```
-	unzip wildfly-21.0.2.Final.zip
+	unzip wildfly-26.1.3.Final.zip
 	```
 * Download the application by executing the following command:
 
@@ -75,13 +75,13 @@ The next step is to get the application up and running on a virtual machine. Fol
 * Change directories back to home.
 * Execute the following commands to install the JDBC driver, the standalone configuration and the application:
 	```
-	mkdir -p wildfly-21.0.2.Final/modules/org/postgresql/main
-	cp jakartaee-azure-master/jakartaee/server/postgresql-42.2.19.jar wildfly-21.0.2.Final/modules/org/postgresql/main/
-	cp jakartaee-azure-master/jakartaee/server/module.xml wildfly-21.0.2.Final/modules/org/postgresql/main/
-	cp jakartaee-azure-master/iaas/standalone.xml wildfly-21.0.2.Final/standalone/configuration/
-	cp jakartaee-azure-master/jakartaee/jakartaee-cafe/target/jakartaee-cafe.war wildfly-21.0.2.Final/standalone/deployments/
+	mkdir -p wildfly-26.1.3.Final/modules/org/postgresql/main
+	cp jakartaee-azure-master/jakartaee/server/postgresql-42.5.3.jar wildfly-26.1.3.Final/modules/org/postgresql/main/
+	cp jakartaee-azure-master/jakartaee/server/module.xml wildfly-26.1.3.Final/modules/org/postgresql/main/
+	cp jakartaee-azure-master/iaas/standalone.xml wildfly-26.1.3.Final/standalone/configuration/
+	cp jakartaee-azure-master/jakartaee/jakartaee-cafe/target/jakartaee-cafe.war wildfly-26.1.3.Final/standalone/deployments/
 	```
-* Change directories to wildfly-21.0.2.Final/bin. Run the following command to get root shell access:
+* Change directories to wildfly-26.1.3.Final/bin. Run the following command to get root shell access:
 
 	```
 	sudo su
