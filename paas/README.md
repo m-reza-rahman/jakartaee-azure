@@ -29,7 +29,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 	```
 	az login
 	```
-## Start the Application on Managed WildFly
+## Start the Application on Managed JBoss EAP
 The next step is to get the application up and running on managed JBoss EAP. Follow the steps below to do so.
 
 * Start Eclipse.
@@ -45,7 +45,7 @@ The next step is to get the application up and running on managed JBoss EAP. Fol
     <configuration>
         <appName>jakartaee-cafe-web-reza</appName>
         <resourceGroup>jakartaee-cafe-group-reza</resourceGroup>
-	<javaVersion>Java 8</javaVersion>
+	<javaVersion>Java 11</javaVersion>
 	<webContainer>JBossEAP 7</webContainer>
 	<deployment>
             <resources>
