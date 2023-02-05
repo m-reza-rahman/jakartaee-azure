@@ -14,6 +14,5 @@ The key Azure pathways for Jakarta EE applications include:
 The demos use Jakarta EE 8, WildFly/JBoss EAP and PostgreSQL.
 
 ## To Do
-* Upgrade Java SE/WildFly version
 * Explore Galleon/Bootable Jars
 * Explore WildFly Operator
