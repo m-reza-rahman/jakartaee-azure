@@ -22,7 +22,7 @@ docker run -it --rm -e POSTGRES_HOST_AUTH_METHOD=trust --name jakartaee-cafe-db 
 The next step is to get the application up and running. Follow the steps below to do so.
 * Start Eclipse.
 * Go to Servers -> New -> Server. Install Red Hat JBoss Middleware -> JBoss AS, WildFly & EAP Server Tools. You may need to restart the IDE.
-* After the JBoss adapters are done installing, go to the 'Servers' panel again, right click. Select New -> Server -> JBoss Community -> WildFly 21. Choose the defaults on the next screen and hit 'Next'. Choose to download and install a runtime. Choose WildFly 21.0.2. Click Finish.
+* After the JBoss adapters are done installing, go to the 'Servers' panel again, right click. Select New -> Server -> JBoss Community -> WildFly 26. Choose the defaults on the next screen and hit 'Next'. Choose to download and install a runtime. Choose WildFly 26.1.3. Click Finish.
 * Find out where Eclipse has installed WildFly in your file system. In the Servers panel, open the WildFly instance. Click runtime environment. Note down the server home directory.
 * Browse to where WildFly is installed. Create the path modules/org/postgresql/main.
 * Browse to where you have this repository code in your file system. You will need to copy the module.xml and PostgreSQL driver to the newly created modules/org/postgresql/main path. Both of these files are located under jakartaee/server directory. Also from the jakartaee/server directory, copy the standalone.xml into standalone/configuration where WildFly is installed.
