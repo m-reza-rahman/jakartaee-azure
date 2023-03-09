@@ -16,4 +16,3 @@ The demos use Jakarta EE 8, WildFly/JBoss EAP and PostgreSQL.
 ## To Do
 * Move to RHEL
 * Explore WildFly Operator
-* Explore Galleon/Bootable Jars
