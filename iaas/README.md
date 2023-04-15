@@ -27,10 +27,10 @@ The next step is to get the application up and running on a virtual machine. Fol
 	```
 	ssh wildfly@[public IP]
 	```
-* Run the following to update the package manager.
+* Run the following to update the operating system.
 
 	```
-	sudo apt-get update
+	sudo yum update
 	```
 * Install Java by executing the following command.
 
