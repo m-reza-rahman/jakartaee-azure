@@ -50,11 +50,6 @@ The next step is to get the application up and running on a virtual machine. Fol
 
 	```
 	wget https://github.com/wildfly/wildfly/releases/download/26.1.3.Final/wildfly-26.1.3.Final.zip
-	```
-* Install unzip by executing the following command:
-
-	```
-	sudo apt install unzip
 	```	
 * Unzip WildFy by executing the following command:
 
