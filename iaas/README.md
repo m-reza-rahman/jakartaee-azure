@@ -20,8 +20,8 @@ The next step is to get the application up and running on a virtual machine. Fol
 
 * Clone this repository into your own GitHub account. Make sure to update the [standalone.xml](standalone.xml) file to replace occurrences of `reza` with `<your suffix>`.
 * Go to the [Azure portal](http://portal.azure.com).
-* Select 'Create a resource'. In the search box, enter and search for 'Ubuntu Server 20.04 LTS'. In the results, select 'Ubuntu Server 20.04 LTS' (this is an official offering from Canonical). Hit create.
-* Enter the resource group as jakartaee-cafe-group-`<your suffix>`. Enter the virtual machine name as jakartaee-cafe-server-`<your suffix>` (the suffix could be your first name such as "reza"). Choose password based authentication instead of SSH. Enter wildfly as the username. Specify the password to be Secret12345!. For 'Select inbound ports' choose the HTTP (80), HTTPS (443) and SSH (22) ports to open. Hit next until you reach the networking settings. Ensure ports 22, 80 and 443 are still open. Create the resource.
+* Select 'Create a resource'. In the search box, enter and search for 'Red Hat Enterprise Linux'. In the results, select 'Red Hat Enterprise Linux' (this is an official offering from Red Hat). Hit create. Make sure to select the latest version.
+* Enter the resource group as jakartaee-cafe-group-`<your suffix>`. Enter the virtual machine name as jakartaee-cafe-server-`<your suffix>` (the suffix could be your first name such as "reza"). Choose the latest Red Hat Enterprise Linux image.  Choose password based authentication instead of SSH. Enter wildfly as the username. Specify the password to be Secret12345!. For 'Select inbound ports' choose the HTTP (80), HTTPS (443) and SSH (22) ports to open. Hit next until you reach the networking settings. Ensure ports 22, 80 and 443 are still open. Create the resource.
 * In the portal, go to 'All resources'. Find and click on jakartaee-cafe-server-`<your suffix>`. In the overview panel, find the public IP. Connect to the virtual machine by executing the following command.
 
 	```
