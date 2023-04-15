@@ -89,8 +89,8 @@ The next step is to get the application up and running on a virtual machine. Fol
 
 	```
 	firewall-cmd --zone=public --add-service=http --permanent
-        firewall-cmd --zone=public --add-service=https --permanent
-        firewall-cmd --reload
+	firewall-cmd --zone=public --add-service=https --permanent
+	firewall-cmd --reload
 	```
 * Execute the following command to start WildFly:
 	```
