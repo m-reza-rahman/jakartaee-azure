@@ -69,7 +69,7 @@ The next step is to get the application up and running on a virtual machine. Fol
 *  Change directories to where the application was extracted. Move to the jakartaee/jakartaee-cafe directory. Build the application by executing:
 
 	```
-	mvn install
+	mvn clean package
 	```
 * Change directories back to home.
 * Execute the following commands to install the JDBC driver, the standalone configuration and the application:
