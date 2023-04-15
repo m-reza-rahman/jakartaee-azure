@@ -37,10 +37,14 @@ The next step is to get the application up and running on a virtual machine. Fol
 	```
 	sudo yum install java-17-openjdk
 	```
-* Install Maven by executing the following command.
+* Install Maven by executing the following commands.
 
 	```
-	sudo apt install maven
+	wget https://dlcdn.apache.org/maven/maven-3/3.9.1/binaries/apache-maven-3.9.1-bin.tar.gz
+	tar xvf apache-maven-3.9.1-bin.tar.gz
+	export M2_HOME=/home/wildfly/apache-maven-3.9.1
+	export M2=$M2_HOME/bin
+	export PATH=$M2:$PATH
 	```
 * Download WildFy by executing the following command:
 
