@@ -18,9 +18,6 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 * Go to the [Azure portal](http://portal.azure.com).
 * Select 'Create a resource'. In the search box, enter and select 'Web App'. Hit create.
 * Enter jakartaee-cafe-web-`<your suffix>` (the suffix could be your first name such as "reza") as application name and select jakartaee-cafe-group-`<your suffix>` as the resource group. Choose Java 11 as your runtime stack and JBoss EAP 7 as the Java web server stack. Hit create.
-* In the portal home, go to 'All resources'. Find and click on the resource named jakartaee-cafe-web-`<your suffix>` of type App Service. Go to the Deployment Center -> FTPS credentials. Note the application scoped FTP access information on this page. Connect with your favorite FTP client using this access information.
-* Go to where this application is on your local machine. Go to the paas directory. Open the [jboss_cli_commands.cli](jboss_cli_commands.cli) in a text editor. Replace occurrences of `reza` with `<your suffix>`. Make sure to switch your FTP client to *binary mode*, if that is not already the default.  Via FTP, upload the JDBC driver to the /site/deployments/tools directory. Then upload the jboss_cli_commands.cli and postgresql-module.xml files to the /site/deployments/tools directory as well. Finally, upload the startup.sh file to the root of the FTP path (/).
-* Go back to the Overview panel and hit restart.
 
 ## Install the Azure CLI
 * In order to deploy the application, we will need to [install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -41,15 +38,38 @@ The next step is to get the application up and running on managed JBoss EAP. Fol
 <plugin>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-webapp-maven-plugin</artifactId>
-    <version>2.8.0</version>
+    <version>2.10.0</version>
     <configuration>
-        <appName>jakartaee-cafe-web-reza</appName>
-        <resourceGroup>jakartaee-cafe-group-reza</resourceGroup>
-	<javaVersion>Java 11</javaVersion>
-	<webContainer>JBossEAP 7</webContainer>
-	<deployment>
+        <appName>jakartaee-cafe-web-denis</appName>
+        <resourceGroup>jakartaee-cafe-group-denis</resourceGroup>
+        <javaVersion>Java 11</javaVersion>
+        <webContainer>Jbosseap 7</webContainer>
+        <deployment>
             <resources>
                 <resource>
+                    <type>lib</type>
+                    <directory>${project.basedir}/..</directory>
+                    <includes>
+                        <include>postgresql-42.5.3.jar</include>
+                    </includes>
+                </resource>
+                <resource>
+                    <type>script</type>
+                    <directory>${project.basedir}/..</directory>
+                    <includes>
+                        <include>postgresql-module.xml</include>
+                        <include>jboss_cli_commands.cli</include>
+                    </includes>
+                </resource>
+                <resource>
+                    <type>startup</type>
+                    <directory>${project.basedir}/..</directory>
+                    <includes>
+                        <include>startup.sh</include>
+                    </includes>
+                </resource>
+                <resource>
+                    <type>war</type>
                     <directory>${project.basedir}/target</directory>
                     <includes>
                         <include>jakartaee-cafe.war</include>
