@@ -43,7 +43,7 @@ The next step is to get the application up and running on managed JBoss EAP. Fol
         <appName>jakartaee-cafe-web-reza</appName>
         <resourceGroup>jakartaee-cafe-group-reza</resourceGroup>
         <javaVersion>Java 11</javaVersion>
-        <webContainer>Jbosseap 7</webContainer>
+        <webContainer>JBossEAP 7</webContainer>
         <deployment>
             <resources>
                 <resource>
