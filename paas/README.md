@@ -40,8 +40,8 @@ The next step is to get the application up and running on managed JBoss EAP. Fol
     <artifactId>azure-webapp-maven-plugin</artifactId>
     <version>2.10.0</version>
     <configuration>
-        <appName>jakartaee-cafe-web-denis</appName>
-        <resourceGroup>jakartaee-cafe-group-denis</resourceGroup>
+        <appName>jakartaee-cafe-web-reza</appName>
+        <resourceGroup>jakartaee-cafe-group-reza</resourceGroup>
         <javaVersion>Java 11</javaVersion>
         <webContainer>Jbosseap 7</webContainer>
         <deployment>
