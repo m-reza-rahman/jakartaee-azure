@@ -52,6 +52,35 @@
                 </configuration>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <execution>
+                        <id>copy</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <artifactItems>
+                        <artifactItem>
+                            <groupId>org.postgresql</groupId>
+                            <artifactId>postgresql</artifactId>
+                            <version>42.6.0</version>
+                            <type>jar</type>
+                            <overWrite>true</overWrite>
+                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <destFileName>postgresql-jdbc.jar</destFileName>
+                        </artifactItem>
+                    </artifactItems>
+                    <overWriteReleases>true</overWriteReleases>
+                    <overWriteSnapshots>true</overWriteSnapshots>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>com.microsoft.azure</groupId>
                 <artifactId>azure-webapp-maven-plugin</artifactId>
                 <version>2.10.0</version>
@@ -64,9 +93,9 @@
                         <resources>
                             <resource>
                                 <type>lib</type>
-                                <directory>${project.basedir}/..</directory>
+                                <directory>${project.build.directory}</directory>
                                 <includes>
-                                    <include>postgresql-42.5.3.jar</include>
+                                    <include>postgresql-jdbc.jar</include>
                                 </includes>
                             </resource>
                             <resource>
