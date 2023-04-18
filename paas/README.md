@@ -26,6 +26,29 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 	```
 	az login
 	```
+
+## Configure connection strings
+
+Create an environment variable to store your username
+
+export GUID=`<your suffix>`
+
+Run the following azure cli commands to create the required connection strings:
+
+```
+az webapp config connection-string list --name jakartaee-cafe-web-$GUID --resource-group jakartaee-cafe-group-$GUID
+
+az webapp config connection-string set -g jakartaee-cafe-group-$GUID  -n jakartaee-cafe-web-$GUID  -t PostgreSQL \
+    --settings CONNECTION_URL='jdbc:postgresql://jakartaee-cafe-db-'$GUID'.postgres.database.azure.com:5432/postgres'
+
+az webapp config connection-string set -g jakartaee-cafe-group-$GUID  -n jakartaee-cafe-web-$GUID  -t PostgreSQL \
+    --settings PASSWORD='Secret123!'
+
+az webapp config connection-string set -g jakartaee-cafe-group-$GUID  -n jakartaee-cafe-web-$GUID  -t PostgreSQL \
+    --settings USERNAME='postgres@jakartaee-cafe-db-'$GUID
+
+```
+
 ## Start the Application on Managed JBoss EAP
 The next step is to get the application up and running on managed JBoss EAP. Follow the steps below to do so.
 
