@@ -36,48 +36,48 @@ The next step is to get the application up and running on managed JBoss EAP. Fol
 
 ```xml
 <plugin>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure-webapp-maven-plugin</artifactId>
-    <version>2.10.0</version>
-    <configuration>
-        <appName>jakartaee-cafe-web-reza</appName>
-        <resourceGroup>jakartaee-cafe-group-reza</resourceGroup>
-        <javaVersion>Java 11</javaVersion>
-        <webContainer>JBossEAP 7</webContainer>
-        <deployment>
-            <resources>
-                <resource>
-                    <type>lib</type>
-                    <directory>${project.basedir}/..</directory>
-                    <includes>
-                        <include>postgresql-42.5.3.jar</include>
-                    </includes>
-                </resource>
-                <resource>
-                    <type>script</type>
-                    <directory>${project.basedir}/..</directory>
-                    <includes>
-                        <include>postgresql-module.xml</include>
-                        <include>jboss_cli_commands.cli</include>
-                    </includes>
-                </resource>
-                <resource>
-                    <type>startup</type>
-                    <directory>${project.basedir}/..</directory>
-                    <includes>
-                        <include>startup.sh</include>
-                    </includes>
-                </resource>
-                <resource>
-                    <type>war</type>
-                    <directory>${project.basedir}/target</directory>
-                    <includes>
-                        <include>jakartaee-cafe.war</include>
-                    </includes>
-                </resource>
-            </resources>
-        </deployment>
-    </configuration>
+  <groupId>com.microsoft.azure</groupId>
+  <artifactId>azure-webapp-maven-plugin</artifactId>
+  <version>2.10.0</version>
+  <configuration>
+    <appName>jakartaee-cafe-web-reza</appName>
+    <resourceGroup>jakartaee-cafe-group-reza</resourceGroup>
+    <javaVersion>Java 11</javaVersion>
+    <webContainer>JBossEAP 7</webContainer>
+    <deployment>
+      <resources>
+        <resource>
+          <type>lib</type>
+          <directory>${project.build.directory}</directory>
+          <includes>
+            <include>postgresql-jdbc.jar</include>
+          </includes>
+        </resource>
+        <resource>
+          <type>script</type>
+          <directory>${project.basedir}/src/main/scripts</directory>
+          <includes>
+            <include>postgresql-module.xml</include>
+            <include>jboss_cli_commands.cli</include>
+          </includes>
+        </resource>
+        <resource>
+          <type>startup</type>
+          <directory>${project.basedir}/src/main/scripts</directory>
+          <includes>
+            <include>startup.sh</include>
+          </includes>
+        </resource>
+        <resource>
+          <type>war</type>
+          <directory>${project.build.directory}</directory>
+          <includes>
+            <include>jakartaee-cafe.war</include>
+          </includes>
+        </resource>
+      </resources>
+    </deployment>
+  </configuration>
 </plugin>
 ```
 
