@@ -15,19 +15,67 @@
     <properties>
         <jakartaee.api.version>8.0.0</jakartaee.api.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <version.server.bom>7.4.0.GA</version.server.bom>
+        <maven.repository.protocol>https</maven.repository.protocol>
+        <!-- The full remote maven repo URL; can be overridden via -D for special use cases -->
+        <maven.repository.url>${maven.repository.protocol}://repository.jboss.org/nexus/content/groups/public/</maven.repository.url>
+        <!-- https://access.redhat.com/maven-repository -->
+        <maven.redhat.repository.url>${maven.repository.protocol}://maven.repository.redhat.com/ga/</maven.redhat.repository.url>
     </properties>
+    <repositories>
+        <repository>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </snapshots>
+            <id>jboss-public-repository-group</id>
+            <name>JBoss Public Repository Group</name>
+            <url>${maven.repository.url}</url>
+            <layout>default</layout>
+        </repository>
+        <repository>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </snapshots>
+            <id>jboss-enterprise-maven-repository</id>
+            <name>JBoss Enterprise Maven Repository</name>
+            <url>${maven.redhat.repository.url}</url>
+            <layout>default</layout>
+        </repository>
+    </repositories>
+    <dependencyManagement>
+        <dependencies>
+            <!-- importing the jakartaee8-with-tools BOM adds specs and other useful artifacts as managed dependencies -->
+            <dependency>
+                <groupId>org.jboss.bom</groupId>
+                <artifactId>jboss-eap-jakartaee8-with-tools</artifactId>
+                <version>${version.server.bom}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <dependencies>
         <dependency>
-            <groupId>jakarta.platform</groupId>
-            <artifactId>jakarta.jakartaee-api</artifactId>
-            <version>${jakartaee.api.version}</version>
+            <groupId>org.jboss.spec</groupId>
+            <artifactId>jboss-jakartaee-8.0</artifactId>
+            <version>1.0.1.Final-redhat-00007</version>
+            <type>pom</type>
             <scope>provided</scope>
         </dependency>
         <!-- Required by Java SE 9+ -->
         <dependency>
-            <groupId>org.glassfish.jaxb</groupId>
-            <artifactId>jaxb-runtime</artifactId>
-            <version>2.3.3</version>
+            <groupId>org.jboss.spec.javax.xml.bind</groupId>
+            <artifactId>jboss-jaxb-api_2.3_spec</artifactId>
             <scope>provided</scope>
         </dependency>
     </dependencies>
@@ -52,55 +100,26 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>3.3.0</version>
-                <executions>
-                    <execution>
-                        <id>copy</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>copy</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <artifactItems>
-                        <artifactItem>
-                            <groupId>org.postgresql</groupId>
-                            <artifactId>postgresql</artifactId>
-                            <version>42.6.0</version>
-                            <type>jar</type>
-                            <overWrite>true</overWrite>
-                            <outputDirectory>${project.build.directory}</outputDirectory>
-                            <destFileName>postgresql-jdbc.jar</destFileName>
-                        </artifactItem>
-                    </artifactItems>
-                    <overWriteReleases>true</overWriteReleases>
-                    <overWriteSnapshots>true</overWriteSnapshots>
-                </configuration>
-            </plugin>
-            <plugin>
                 <groupId>com.microsoft.azure</groupId>
                 <artifactId>azure-webapp-maven-plugin</artifactId>
                 <version>2.10.0</version>
                 <configuration>
-                    <appName>jakartaee-cafe-web-reza</appName>
-                    <resourceGroup>jakartaee-cafe-group-reza</resourceGroup>
+                    <appName>jakartaee-cafe-web-philip</appName>
+                    <resourceGroup>jakartaee-cafe-group-philip</resourceGroup>
                     <javaVersion>Java 11</javaVersion>
                     <webContainer>JBossEAP 7</webContainer>
                     <deployment>
                         <resources>
                             <resource>
                                 <type>lib</type>
-                                <directory>${project.build.directory}</directory>
+                                <directory>${project.basedir}/..</directory>
                                 <includes>
-                                    <include>postgresql-jdbc.jar</include>
+                                    <include>postgresql-42.5.3.jar</include>
                                 </includes>
                             </resource>
                             <resource>
                                 <type>script</type>
-                                <directory>${project.basedir}/src/main/scripts</directory>
+                                <directory>${project.basedir}/..</directory>
                                 <includes>
                                     <include>postgresql-module.xml</include>
                                     <include>jboss_cli_commands.cli</include>
@@ -108,14 +127,14 @@
                             </resource>
                             <resource>
                                 <type>startup</type>
-                                <directory>${project.basedir}/src/main/scripts</directory>
+                                <directory>${project.basedir}/..</directory>
                                 <includes>
                                     <include>startup.sh</include>
                                 </includes>
                             </resource>
                             <resource>
                                 <type>war</type>
-                                <directory>${project.build.directory}</directory>
+                                <directory>${project.basedir}/target</directory>
                                 <includes>
                                     <include>jakartaee-cafe.war</include>
                                 </includes>
