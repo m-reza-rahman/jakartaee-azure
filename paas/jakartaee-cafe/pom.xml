@@ -100,7 +100,7 @@
                             </resource>
                             <resource>
                                 <type>script</type>
-                                <directory>${project.basedir}/..</directory>
+                                <directory>${project.basedir}/src/main/scripts</directory>
                                 <includes>
                                     <include>postgresql-module.xml</include>
                                     <include>jboss_cli_commands.cli</include>
@@ -108,14 +108,14 @@
                             </resource>
                             <resource>
                                 <type>startup</type>
-                                <directory>${project.basedir}/..</directory>
+                                <directory>${project.basedir}/src/main/scripts</directory>
                                 <includes>
                                     <include>startup.sh</include>
                                 </includes>
                             </resource>
                             <resource>
                                 <type>war</type>
-                                <directory>${project.basedir}/target</directory>
+                                <directory>${project.build.directory}</directory>
                                 <includes>
                                     <include>jakartaee-cafe.war</include>
                                 </includes>
