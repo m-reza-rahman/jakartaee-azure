@@ -31,7 +31,7 @@ The next step is to get the application up and running on managed JBoss EAP. Fol
 
 * Start Eclipse.
 * Get the jakartaee-cafe application in the PaaS directory into the IDE. In order to do that, go to File -> Import -> Maven -> Existing Maven Projects. Then browse to where you have this repository code in your file system and select paas/jakartaee-cafe. Accept the rest of the defaults and finish.
-* Once the application loads, open the [pom.xml](jakartaee-cafe/pom.xml) file and replace occurrences of `reza` with `<your suffix>`. Open the file [jboss_cli_commands.cli](jakartaee-cafe/src/main/jboss/config/jboss_cli_commands.cli) in a text editor. Replace occurrences of `reza` with `<your suffix>`.
+* Once the application loads, open the [pom.xml](jakartaee-cafe/pom.xml) file and replace occurrences of `reza` with `<your suffix>`. Open the file [jboss_cli_commands.cli](jakartaee-cafe/src/main/jboss/config/jboss_cli_commands.cli) and replace occurrences of `reza` with `<your suffix>`.
 * You should do a full Maven build by going to Right click the application -> Run As -> Maven install.
 * You should note the pom.xml. In particular, we have included the configuration for the Azure Maven plugin we are going to use to deploy the application to managed JBoss EAP:
 
