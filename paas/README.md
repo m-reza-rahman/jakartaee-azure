@@ -18,7 +18,7 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 * Go to the [Azure portal](http://portal.azure.com).
 * Select 'Create a resource'. In the search box, enter and select 'Web App'. Hit create.
 * Enter jakartaee-cafe-web-`<your suffix>` (the suffix could be your first name such as "reza") as application name and select jakartaee-cafe-group-`<your suffix>` as the resource group. Choose Java 11 as your runtime stack and JBoss EAP 7 as the Java web server stack. Hit create.
-* Go to where this application is on your local machine. Go to the paas directory. Open the file [jboss_cli_commands.cli](jboss_cli_commands.cli) in a text editor. Replace occurrences of `reza` with `<your suffix>`. Also, open the file [pom.xml](pom.xml) in a text editor and update the `azure-webapp-maven-plugin` plugin configuration to point to the right resource group (jakartaee-cafe-group-`<your suffix>`) and web application name (jakartaee-cafe-web-`<your suffix>`).
+* Go to where this application is on your local machine. Go to the paas directory. Open the file [jboss_cli_commands.cli](jboss_cli_commands.cli) in a text editor. Replace occurrences of `reza` with `<your suffix>`.
 
 ## Install the Azure CLI
 * In order to deploy the application, we will need to [install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
