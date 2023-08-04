@@ -49,14 +49,14 @@ The next step is to get the application up and running on managed JBoss EAP. Fol
                         <resources>
                             <resource>
                                 <type>lib</type>
-                                <directory>${project.basedir}/..</directory>
+                                <directory>${project.basedir}/src/main/jboss/config</directory>
                                 <includes>
                                     <include>postgresql-42.5.3.jar</include>
                                 </includes>
                             </resource>
                             <resource>
                                 <type>script</type>
-                                <directory>${project.basedir}/..</directory>
+                                <directory>${project.basedir}/src/main/jboss/config</directory>
                                 <includes>
                                     <include>postgresql-module.xml</include>
                                     <include>jboss_cli_commands.cli</include>
@@ -64,7 +64,7 @@ The next step is to get the application up and running on managed JBoss EAP. Fol
                             </resource>
                             <resource>
                                 <type>startup</type>
-                                <directory>${project.basedir}/..</directory>
+                                <directory>${project.basedir}/src/main/jboss/config</directory>
                                 <includes>
                                     <include>startup.sh</include>
                                 </includes>
