@@ -18,7 +18,6 @@ Once you are done exploring the demo, you should delete the jakartaee-cafe-group
 * Go to the [Azure portal](http://portal.azure.com).
 * Select 'Create a resource'. In the search box, enter and select 'Web App'. Hit create.
 * Enter jakartaee-cafe-web-`<your suffix>` (the suffix could be your first name such as "reza") as application name and select jakartaee-cafe-group-`<your suffix>` as the resource group. Choose Java 11 as your runtime stack and JBoss EAP 7 as the Java web server stack. Hit create.
-* Go to where this application is on your local machine. Go to the paas directory. Open the file [jboss_cli_commands.cli](jboss_cli_commands.cli) in a text editor. Replace occurrences of `reza` with `<your suffix>`.
 
 ## Install the Azure CLI
 * In order to deploy the application, we will need to [install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -32,7 +31,8 @@ The next step is to get the application up and running on managed JBoss EAP. Fol
 
 * Start Eclipse.
 * Get the jakartaee-cafe application in the PaaS directory into the IDE. In order to do that, go to File -> Import -> Maven -> Existing Maven Projects. Then browse to where you have this repository code in your file system and select paas/jakartaee-cafe. Accept the rest of the defaults and finish.
-* Once the application loads, open the [pom.xml](jakartaee-cafe/pom.xml) file and replace occurrences of `reza` with `<your suffix>`. You should do a full Maven build by going to Right click the application -> Run As -> Maven install.
+* Once the application loads, open the [pom.xml](jakartaee-cafe/pom.xml) file and replace occurrences of `reza` with `<your suffix>`. Open the file [jboss_cli_commands.cli](jakartaee-cafe/src/main/jboss/config/jboss_cli_commands.cli) in a text editor. Replace occurrences of `reza` with `<your suffix>`.
+* You should do a full Maven build by going to Right click the application -> Run As -> Maven install.
 * You should note the pom.xml. In particular, we have included the configuration for the Azure Maven plugin we are going to use to deploy the application to managed JBoss EAP:
 
 ```xml
