@@ -8,7 +8,7 @@
 		<properties>
 			<property
 				name="javax.persistence.schema-generation.database.action"
-				value="drop-and-create" />
+				value="create" />
 			<property name="openjpa.jdbc.SynchronizeMappings"
 				value="buildSchema" />
 			<property name="eclipselink.logging.level.sql" value="FINE" />
