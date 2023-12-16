@@ -10,7 +10,7 @@ We will be using the fully managed PostgreSQL offering in Azure for this demo. I
 * Go to the [Azure portal](http://portal.azure.com).
 * Select 'Create a resource'. In the search box, enter and select 'Azure Database for PostgreSQL'. Hit create.
 * Create a new resource group named jakartaee-cafe-group-`<your suffix>` (the suffix could be your first name such as "reza"). Specify the Server name to be jakartaee-cafe-db-`<your suffix>` (the suffix could be your first name such as "reza"). Specify the login name to be postgres. Specify the password to be Secret123!. Click Next to go to the Networking tab.
-* Enable access to Azure services, add the current client IP address.
+* Enable access to Azure services and add the current client IP address.
 * Create the resource. It will take a moment for the database to deploy and be ready for use.
 * In the portal home, go to 'All resources'. Find and click on jakartaee-cafe-db-`<your suffix>`. Open the connection security panel. , disable SSL connection enforcement, and then hit 'Save'.
 
