@@ -134,9 +134,7 @@
                     </security>
                 </datasource>
                 <datasource jndi-name="java:/jdbc/JakartaEECafeDB" pool-name="PostgresDS" enabled="true" use-java-context="true">
-                    <connection-property name="url">
-                        jdbc:postgresql://jakartaee-cafe-db-reza.postgres.database.azure.com:5432/postgres?sslmode=require
-                    </connection-property>
+                    <connection-property name="url">jdbc:postgresql://jakartaee-cafe-db-reza.postgres.database.azure.com:5432/postgres</connection-property>
                     <driver>postgres</driver>
                     <security>
                         <user-name>postgres@jakartaee-cafe-db-reza</user-name>
