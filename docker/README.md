@@ -13,6 +13,7 @@ We will be using the fully managed PostgreSQL offering in Azure for this demo. I
 * Create a new resource group named jakartaee-cafe-group-`<your suffix>` (the suffix could be your first name such as "reza"). Specify the Server name to be jakartaee-cafe-db-`<your suffix>` (the suffix could be your first name such as "reza"). Specify the login name to be postgres. Specify the password to be Secret123!. Click Next to go to the Networking tab.
 * Enable access to Azure services and add the current client IP address.
 * Create the resource. It will take a moment for the database to deploy and be ready for use.
+* In the portal home, go to 'All resources'. Find and click on jakartaee-cafe-db-`<your suffix>`. Open the server parameters panel. Set the require_secure_transport parameter to OFF, and then hit 'Save'.
 
 Once you are done exploring the demo, you should delete the jakartaee-cafe-group-`<your suffix>` resource group. You can do this by going to the portal, going to resource groups, finding and clicking on jakartaee-cafe-group-`<your suffix>` and hitting delete. This is especially important if you are not using a free subscription! If you do keep these resources around (for example to begin your own prototype), you should in the least use your own passwords and make the corresponding changes in the demo code.
 
