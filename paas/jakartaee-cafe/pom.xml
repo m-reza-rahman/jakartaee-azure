@@ -66,13 +66,20 @@
                     <resourceGroup>jakartaee-cafe-group-reza</resourceGroup>
                     <javaVersion>Java 11</javaVersion>
                     <webContainer>JBossEAP 7</webContainer>
+                    <appSettings>
+                        <!-- Increase the timeout -->
+                        <property>
+                            <name>WEBSITES_CONTAINER_START_TIME_LIMIT</name>
+                            <value>500</value>
+                        </property>
+                    </appSettings>
                     <deployment>
                         <resources>
                             <resource>
                                 <type>lib</type>
                                 <directory>${project.basedir}/src/main/jboss/config</directory>
                                 <includes>
-                                    <include>postgresql-42.5.3.jar</include>
+                                    <include>postgresql-42.7.1.jar</include>
                                 </includes>
                             </resource>
                             <resource>
