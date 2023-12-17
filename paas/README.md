@@ -38,49 +38,56 @@ The next step is to get the application up and running on managed JBoss EAP. Fol
 * You should note the pom.xml. In particular, we have included the configuration for the Azure Maven plugin we are going to use to deploy the application to managed JBoss EAP:
 
 ```xml
-            <plugin>
-                <groupId>com.microsoft.azure</groupId>
-                <artifactId>azure-webapp-maven-plugin</artifactId>
-                <version>2.11.1</version>
-                <configuration>
-                    <appName>jakartaee-cafe-web-reza</appName>
-                    <resourceGroup>jakartaee-cafe-group-reza</resourceGroup>
-                    <javaVersion>Java 11</javaVersion>
-                    <webContainer>JBossEAP 7</webContainer>
-                    <deployment>
-                        <resources>
-                            <resource>
-                                <type>lib</type>
-                                <directory>${project.basedir}/src/main/jboss/config</directory>
-                                <includes>
-                                    <include>postgresql-42.5.3.jar</include>
-                                </includes>
-                            </resource>
-                            <resource>
-                                <type>script</type>
-                                <directory>${project.basedir}/src/main/jboss/config</directory>
-                                <includes>
-                                    <include>postgresql-module.xml</include>
-                                    <include>jboss_cli_commands.cli</include>
-                                </includes>
-                            </resource>
-                            <resource>
-                                <type>startup</type>
-                                <directory>${project.basedir}/src/main/jboss/config</directory>
-                                <includes>
-                                    <include>startup.sh</include>
-                                </includes>
-                            </resource>
-                            <resource>
-                                <directory>${project.basedir}/target</directory>
-                                <includes>
-                                    <include>jakartaee-cafe.war</include>
-                                </includes>
-                            </resource>
-                        </resources>
-                    </deployment>
-                </configuration>
-            </plugin>
+<plugin>
+    <groupId>com.microsoft.azure</groupId>
+    <artifactId>azure-webapp-maven-plugin</artifactId>
+    <version>2.12.0</version>
+    <configuration>
+        <appName>jakartaee-cafe-web-reza</appName>
+        <resourceGroup>jakartaee-cafe-group-reza</resourceGroup>
+        <javaVersion>Java 11</javaVersion>
+        <webContainer>JBossEAP 7</webContainer>
+        <appSettings>
+            <!-- Increase the timeout -->
+            <property>
+                <name>WEBSITES_CONTAINER_START_TIME_LIMIT</name>
+                <value>500</value>
+            </property>
+        </appSettings>
+        <deployment>
+            <resources>
+                <resource>
+                    <type>lib</type>
+                    <directory>${project.basedir}/src/main/jboss/config</directory>
+                    <includes>
+                        <include>postgresql-42.7.1.jar</include>
+                    </includes>
+                </resource>
+                <resource>
+                    <type>script</type>
+                    <directory>${project.basedir}/src/main/jboss/config</directory>
+                    <includes>
+                        <include>postgresql-module.xml</include>
+                        <include>jboss_cli_commands.cli</include>
+                    </includes>
+                </resource>
+                <resource>
+                    <type>startup</type>
+                    <directory>${project.basedir}/src/main/jboss/config</directory>
+                    <includes>
+                        <include>startup.sh</include>
+                    </includes>
+                </resource>
+                <resource>
+                    <directory>${project.basedir}/target</directory>
+                    <includes>
+                        <include>jakartaee-cafe.war</include>
+                    </includes>
+                </resource>
+            </resources>
+        </deployment>
+    </configuration>
+</plugin>
 ```
 
 * It is now time to deploy and run the application on Azure. Right click the application -> Run As -> 'Maven build...'. Enter the name as 'Deploy to Azure'. Enter the goals as 'azure-webapp:deploy'. Hit run.
