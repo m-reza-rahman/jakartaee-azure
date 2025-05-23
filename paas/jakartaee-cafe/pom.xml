@@ -60,12 +60,16 @@
             <plugin>
                 <groupId>com.microsoft.azure</groupId>
                 <artifactId>azure-webapp-maven-plugin</artifactId>
-                <version>2.12.0</version>
+                <version>2.14.1</version>
                 <configuration>
                     <appName>jakartaee-cafe-web-reza</appName>
                     <resourceGroup>jakartaee-cafe-group-reza</resourceGroup>
-                    <javaVersion>Java 11</javaVersion>
-                    <webContainer>JBossEAP 7</webContainer>
+                    <pricingTier>P0v3</pricingTier>
+				    <runtime>
+						<os>Linux</os>      
+						<javaVersion>Java 11</javaVersion>
+						<webContainer>JBossEAP 7</webContainer>
+				    </runtime>
                     <appSettings>
                         <!-- Increase the timeout -->
                         <property>
